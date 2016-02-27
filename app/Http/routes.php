@@ -15,9 +15,18 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
+Route::get('/home', function () {
+	return view('welcome');
+});
+
 Route::get('/login', function () {
 	return view('pages.login');
 });
+
+Route::post('login', [
+	'uses' => 'Auth\AuthController@login', 
+	'as' => 'register'
+]);
 
 Route::get('/register', function () {
 	return view('pages.register');

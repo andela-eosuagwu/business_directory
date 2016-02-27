@@ -1,8 +1,10 @@
 <div class="header">
 	<div class="wrapper">
+
 		<div class="brand">
 			<a href="index-directory.html"><img src="{{asset('assets/img/logo.png')}}" alt="logo"></a>
 		</div>
+	
 		<nav class="navigation-items">
 			<div class="wrapper">
 				<ul class="main-navigation navigation-top-header"></ul>

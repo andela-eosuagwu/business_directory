@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
 use App\User;
 use Validator;
 use Illuminate\Http\Request;
@@ -47,8 +48,15 @@ class AuthController extends Controller
 		return "user created";
 	}
 
-	public function login()
+	public function login(Request $request)
 	{
-		return 3;
+		$credentials = $request->only('email', 'password');
+
+		if (Auth::attempt($credentials))
+		{
+			return view('register');
+		}
 	}
+
+
 }
