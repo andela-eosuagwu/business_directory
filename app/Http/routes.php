@@ -37,7 +37,25 @@ Route::post('register', [
 	'as' => 'register'
 ]);
 
+
+
+
+
 Route::get('users', [
 	'uses' => 'UserController@index', 
 	'as' => 'register'
 ]);
+
+Route::group(['prefx' => 'company'], function () {
+
+
+	Route::get('/', function () {
+		return view('welcome');
+	});
+
+	Route::get('{id}', [
+		'as' => 'company',
+		'uses' =>'CompanyController@detail'
+	]);
+
+});
