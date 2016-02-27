@@ -29,19 +29,25 @@ class AuthController extends Controller
 	 */
 	public function __construct()
 	{
+		parent::__construct();
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
 	public function register()
 	{
-
-
 		$data['email'] 		= "skjcsjhcsjdcsd";
+		$data['sex']	 	= "emeka osuagwu";
 		$data['full_name'] 	= "emeka osuagwu";
-		$data['password'] = "skjcsjhcsjdcsd";
+		$data['password'] 	= "skjcsjhcsjdcsd";
 
 
+		$checkUserExist = $this->userRepository->checkUserExist($data['email']);
 		
-		return "fewefwe";
+		if ($checkUserExist->count() > 0) {
+			return "email is alread take jor";
+		}
+
+		$this->userRepository->createUser($data);
+		return "user created";
 	}
 }

@@ -20,3 +20,8 @@ Route::get('register', [
 	'uses' => 'Auth\AuthController@register', 
 	'as' => 'register'
 ]);
+
+Route::get('users', [
+	'uses' => 'UserController@index', 
+	'as' => 'register'
+]);
