@@ -19,12 +19,18 @@ Route::get('/register', function () {
 	return view('pages.register');
 });
 
-Route::post('register', [
-	'uses' => 'Auth\AuthController@register', 
-	'as' => 'register'
+
+Route::get('login', [
+	'uses' => 'Auth\AuthController@login', 
+	'as' => 'login'
 ]);
 
 Route::get('users', [
 	'uses' => 'UserController@index', 
+	'as' => 'register'
+]);
+
+Route::post('register', [
+	'uses' => 'Auth\AuthController@register', 
 	'as' => 'register'
 ]);

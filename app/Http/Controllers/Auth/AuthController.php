@@ -43,6 +43,12 @@ class AuthController extends Controller
 		}
 
 		$this->userRepository->createUser($request->all());
+		
 		return "user created";
+	}
+
+	public function login()
+	{
+		return 3;
 	}
 }
