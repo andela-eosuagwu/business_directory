@@ -42,30 +42,40 @@
 						</header>
 						<hr>
 						<form role="form" id="form-register" method="post" action="/register">
+
+							<input type="text" class="form-control" id="form-register-email" name="_token" value="{{ csrf_token() }}">
+							
 							<div class="form-group">
 								<label for="form-register-full-name">Full Name:</label>
-								<input type="text" class="form-control" id="form-register-full-name" name="form-register-full-name" required>
-							</div><!-- /.form-group -->
+								<input type="text" class="form-control" id="form-register-full-name" name="full_nama" required>
+							</div>
+
 							<div class="form-group">
 								<label for="form-register-email">Email:</label>
-								<input type="email" class="form-control" id="form-register-email" name="form-register-email" required>
-							</div><!-- /.form-group -->
+								<input type="email" class="form-control" id="form-register-email" name="email" required>
+							</div>
+							
 							<div class="form-group">
 								<label for="form-register-password">Password:</label>
-								<input type="password" class="form-control" id="form-register-password" name="form-register-password" required>
-							</div><!-- /.form-group -->
+								<input type="password" class="form-control" id="form-register-password" name="password" required>
+							</div>
+							
+							<!-- 
 							<div class="form-group">
 								<label for="form-register-confirm-password">Confirm Password:</label>
 								<input type="password" class="form-control" id="form-register-confirm-password" name="form-register-confirm-password" required>
-							</div><!-- /.form-group -->
+							</div>
+							 -->
+							
 							<div class="checkbox pull-left">
 								<label>
 									<input type="checkbox" name="newsletter">Receive Newsletter
 								</label>
 							</div>
+							
 							<div class="form-group clearfix">
 								<button type="submit" class="btn pull-right btn-default" id="account-submit">Create an Account</button>
-							</div><!-- /.form-group -->
+							</div>
 						</form>
 						<hr>
 						<div class="center">
