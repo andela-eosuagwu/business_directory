@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Validator;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
@@ -33,20 +34,15 @@ class AuthController extends Controller
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
-	public function register()
+	public function register(Request $request)
 	{
-		$data['email'] 		= "skjcsjhcsjdcsd";
-		$data['sex']	 	= "emeka osuagwu";
-		$data['full_name'] 	= "emeka osuagwu";
-		$data['password'] 	= "skjcsjhcsjdcsd";
-
-		$checkUserExist = $this->userRepository->checkUserExist($data['email']);
+		$checkUserExist = $this->userRepository->checkUserExist($request['email']);
 		
 		if ($checkUserExist->count() > 0) {
 			return "email is alread take jor";
 		}
 
-		$this->userRepository->createUser($data);
+		$this->userRepository->createUser($request->all());
 		return "user created";
 	}
 }

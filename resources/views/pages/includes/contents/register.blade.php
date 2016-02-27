@@ -43,11 +43,11 @@
 						<hr>
 						<form role="form" id="form-register" method="post" action="/register">
 
-							<input type="text" class="form-control" id="form-register-email" name="_token" value="{{ csrf_token() }}">
+							<input type="text" hidden="true"  name="_token" value="{{ csrf_token() }}">
 							
 							<div class="form-group">
 								<label for="form-register-full-name">Full Name:</label>
-								<input type="text" class="form-control" id="form-register-full-name" name="full_nama" required>
+								<input type="text" class="form-control" id="form-register-full-name" name="full_name" required>
 							</div>
 
 							<div class="form-group">
