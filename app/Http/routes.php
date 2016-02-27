@@ -15,6 +15,8 @@ Route::get('/', function () {
 	return view('welcome');
 });
 
-Route::get('/register', [
-	'use' => ""
+
+Route::get('register', [
+	'uses' => 'Auth\AuthController@register', 
+	'as' => 'register'
 ]);
