@@ -40,7 +40,6 @@ class AuthController extends Controller
 		$data['full_name'] 	= "emeka osuagwu";
 		$data['password'] 	= "skjcsjhcsjdcsd";
 
-
 		$checkUserExist = $this->userRepository->checkUserExist($data['email']);
 		
 		if ($checkUserExist->count() > 0) {
