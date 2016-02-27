@@ -8,7 +8,8 @@
 	<div id="outer-wrapper">
 		<div id="inner-wrapper">
 			@include('pages.includes.sections.header')
-			@include('pages.includes.contents.register')
+			@include('pages.includes.contents.login')
+			@include('pages.includes.sections.footer')
 		</div>
 	</div>
 </body>
