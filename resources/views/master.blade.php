@@ -1,10 +1,11 @@
 <html>
 	<head>
-		<title>App Name - @yield('title')</title>
+		<title>App Name - @yield('title')</title>	
+		@include('pages.includes.sections.link')
 	</head>
-	<body>
-		<div class="container">
-			@yield('content')
-		</div>
+
+		@yield('content')
+
+		@include('pages.includes.sections.script')
 	</body>
 </html>
