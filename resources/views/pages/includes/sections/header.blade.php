@@ -7,8 +7,8 @@
 			<div class="wrapper">
 				<ul class="main-navigation navigation-top-header"></ul>
 				<ul class="user-area">
-					<li><a href="sign-in.html">Sign In</a></li>
-					<li><a href="register.html"><strong>Register</strong></a></li>
+					<li><a href="/login">Sign In</a></li>
+					<li><a href="/register"><strong>Register</strong></a></li>
 				</ul>
 				<a href="submit.html" class="submit-item">
 					<div class="content"><span>Submit Your Item</span></div>
