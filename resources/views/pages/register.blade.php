@@ -8,7 +8,7 @@
 	<div id="outer-wrapper">
 		<div id="inner-wrapper">
 			@include('pages.includes.sections.header')
-			
+			@include('pages.includes.contents.register')
 		</div>
 	</div>
 </body>
