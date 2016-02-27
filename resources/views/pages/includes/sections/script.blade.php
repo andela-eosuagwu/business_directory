@@ -8,3 +8,6 @@
 <script type="text/javascript" src="{{ asset('assets/js/jquery.hotkeys.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/icheck.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/custom.js') }}"></script>
+
+
+
