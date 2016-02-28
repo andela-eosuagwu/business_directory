@@ -38,14 +38,23 @@ Route::post('register', [
 ]);
 
 
-
-
-
 Route::get('users', [
 	'uses' => 'UserController@index', 
 	'as' => 'register'
 ]);
 
-Route::get('company', function () {
-	return view('pages.company_detail');
+
+
+
+Route::group(['prefix' => 'company'], function () {
+	
+	Route::get('/', function ()    {
+		return view('pages.company_detail');
+	});
+
+	Route::get('create', [
+		'uses' 	=> 'CompanyController@create', 
+		'as' 	=> 'company.create'
+	]);
+
 });

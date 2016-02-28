@@ -13,4 +13,18 @@ class CompanyController extends Controller
 	{
 		return $id;
 	}
+
+	public function create()
+	{
+		
+		$data['role'] 		= 0;
+		$data['name'] 	= "andela";
+		$data['user_id'] 	= 1;
+		$data['images'] 	= ['fjhwfeferfe', 'fjhfjehrfjer'];
+		$data['address'] 	= "jhrfaejrhfaehrgfearg";
+		$data['description']	= "hefafjhajchscjshjdhvdjfhvdhf";
+
+		return $this->companyRepository->createCompany($data);
+
+	}
 }
