@@ -16,8 +16,8 @@ class Company extends Model
 		'description',
 	];
 
-	protected $cast = [
-		'tags',
-		'images',
+	protected $casts = [
+		'tags' 		=> 'json',
+		'images' 	=> 'json'
 	];
 }

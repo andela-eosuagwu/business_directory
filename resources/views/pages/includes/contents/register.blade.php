@@ -52,7 +52,7 @@
 
 							<div class="form-group">
 								<label for="form-register-email">Email:</label>
-								<input type="email" class="form-control" id="form-register-email" name="email" required>
+								<input type="text" class="form-control" id="form-register-email" name="email" required>
 							</div>
 							
 							<div class="form-group">

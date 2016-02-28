@@ -45,12 +45,20 @@ Route::get('users', [
 
 
 
+Route::group(['prefix' => 'companies'], function () {
+
+	Route::get('/', [
+		'uses' 	=> 'CompanyController@index', 
+		'as' 	=> 'companies'
+	]);
+
+});
 
 Route::group(['prefix' => 'company'], function () {
 	
 	Route::get('/', function ()    {
 		return view('pages.company_detail');
-	});
+	});	
 
 	Route::get('create', [
 		'uses' 	=> 'CompanyController@create', 

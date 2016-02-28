@@ -9,9 +9,9 @@ use App\Http\Controllers\Controller;
 
 class CompanyController extends Controller
 {
-	public function detail($id)
+	public function index()
 	{
-		return $id;
+		return $this->companyRepository->getAllCompanies();
 	}
 
 	public function create()
@@ -26,6 +26,6 @@ class CompanyController extends Controller
 		$data['description']	= "hefafjhajchscjshjdhvdjfhvdhf";
 
 		return $this->companyRepository->createCompany($data);
-
 	}
+
 }

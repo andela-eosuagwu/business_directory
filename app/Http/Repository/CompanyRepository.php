@@ -7,7 +7,7 @@ use App\Model\Company;
 class CompanyRepository
 {
 
-	public function getAllCompany()
+	public function getAllCompanies()
 	{
 		return Company::get();
 	}
@@ -24,7 +24,7 @@ class CompanyRepository
 		$new_company->address 		= $data['address'];
 		$new_company->description 	= $data['description'];
 		
-		return $new_company->save();
+		$new_company->save();
 	}
 
 	public function checkComapanyNameExist($name)
