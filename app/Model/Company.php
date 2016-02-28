@@ -16,5 +16,5 @@ class Company extends Model
 
 	protected $cast = [
 		'images'
-	]
+	];
 }
