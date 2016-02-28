@@ -33,4 +33,9 @@ class CompanyController extends Controller
 		return $this->companyRepository->getCompanyById($id);
 	}
 
+	public function edit($id)
+	{
+		$company = $this->company($id);
+		return view('pages.company_edit', compact('company'));
+	}
 }
