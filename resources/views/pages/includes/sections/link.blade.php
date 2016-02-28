@@ -7,3 +7,6 @@
 <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-select.min.css') }}" type="text/css">
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css">
 <link rel="stylesheet" href="{{ asset('assets/css/user.style.css') }}" type="text/css">
+
+<link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
+

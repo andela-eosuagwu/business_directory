@@ -46,16 +46,6 @@ Route::get('users', [
 	'as' => 'register'
 ]);
 
-Route::group(['prefx' => 'company'], function () {
-
-
-	Route::get('/', function () {
-		return view('welcome');
-	});
-
-	Route::get('{id}', [
-		'as' => 'company',
-		'uses' =>'CompanyController@detail'
-	]);
-
+Route::get('company', function () {
+	return view('pages.company_detail');
 });
