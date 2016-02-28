@@ -28,4 +28,9 @@ class CompanyController extends Controller
 		return $this->companyRepository->createCompany($data);
 	}
 
+	public function company($id)
+	{
+		return $this->companyRepository->getCompanyById($id);
+	}
+
 }

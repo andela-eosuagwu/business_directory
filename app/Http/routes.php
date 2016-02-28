@@ -65,4 +65,14 @@ Route::group(['prefix' => 'company'], function () {
 		'as' 	=> 'company.create'
 	]);
 
+	Route::get('{id}', [
+		'uses' 	=> 'CompanyController@company', 
+		'as' 	=> 'company.{id}'
+	]);
+
+	Route::get('{id}/edit', [
+		'uses' 	=> 'CompanyController@edit', 
+		'as' 	=> 'company.{id}.edit'
+	]);
+
 });

@@ -12,6 +12,11 @@ class CompanyRepository
 		return Company::get();
 	}
 
+	public function getCompanyById($id)
+	{
+		return Company::find($id);
+	}
+
 	public function createCompany($data)
 	{
 		$new_company = new Company;
