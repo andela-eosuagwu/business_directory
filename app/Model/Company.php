@@ -10,7 +10,6 @@ class Company extends Model
 	protected $fillable = [
 		'tags',
 		'type',
-		'logo',
 		'name',
 		'user_id',
 		'images',
@@ -21,6 +20,7 @@ class Company extends Model
 	protected $casts = [
 		'tags' 		=> 'json',
 		'images' 	=> 'json'
+		'address' 	=> 'json'
 	];
 }
 
