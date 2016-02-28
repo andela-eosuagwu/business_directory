@@ -9,6 +9,8 @@ class Company extends Model
 
 	protected $fillable = [
 		'tags',
+		'type',
+		'logo',
 		'name',
 		'user_id',
 		'images',
@@ -21,3 +23,8 @@ class Company extends Model
 		'images' 	=> 'json'
 	];
 }
+
+/*
+address will be an array
+
+*/
