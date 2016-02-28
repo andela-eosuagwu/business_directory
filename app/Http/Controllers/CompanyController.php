@@ -18,6 +18,7 @@ class CompanyController extends Controller
 	{
 		
 		$data['role'] 		= 0;
+		$data['tags'] 		= ['fjhwfeferfe', 'fjhfjehrfjer'];
 		$data['name'] 	= "andela";
 		$data['user_id'] 	= 1;
 		$data['images'] 	= ['fjhwfeferfe', 'fjhfjehrfjer'];

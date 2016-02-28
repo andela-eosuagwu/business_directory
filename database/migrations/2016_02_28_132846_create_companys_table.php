@@ -18,6 +18,7 @@ class CreateCompanysTable extends Migration
 			$table->string('description');
 			$table->string('address');
 			$table->json('images')->nullable();
+			$table->json('tags')->nullable();
 			$table->integer('role')->nullable();
 			
 			$table->integer('user_id')->unsigned();

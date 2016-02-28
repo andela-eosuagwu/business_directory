@@ -8,13 +8,16 @@ class Company extends Model
 {
 
 	protected $fillable = [
-		'user_id',
+		'tags',
 		'name',
+		'user_id',
 		'images',
+		'address',
 		'description',
 	];
 
 	protected $cast = [
-		'images'
+		'tags',
+		'images',
 	];
 }
