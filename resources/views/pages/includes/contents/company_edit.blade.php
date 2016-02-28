@@ -64,8 +64,8 @@
 								<section>
 									<h3><i class="fa fa-map-marker"></i>Address</h3>
 									<div class="form-group">
-										<label for="state">State</label>
-										<input type="text" class="form-control" id="state" name="state" value="Ohio">
+										<label for="state">Name</label>
+										<input type="text" class="form-control" id="state" name="state" value="{{$company->name}}">
 									</div>
 									<!--/.form-group-->
 									<div class="form-group">
@@ -77,7 +77,7 @@
 										<div class="col-md-8 col-sm-8">
 											<div class="form-group">
 												<label for="street">Street</label>
-												<input type="text" class="form-control" id="street" name="street" value="2050 Sampson Street">
+												<input type="text" class="form-control" id="street" name="street" value="{{ $company->address }}">
 											</div>
 											<!--/.form-group-->
 										</div>
@@ -98,11 +98,11 @@
 									<!--/.form-group-->
 								</section>
 								<section>
-									<h3><i class="fa fa-info-circle"></i>About Me</h3>
+									<h3><i class="fa fa-info-circle"></i>Description</h3>
 									<div class="form-group">
-										<label for="about-me">Some Words About Me</label>
+										<label for="about-me" style="text-transform: capitalize;">Some Words About {{$company->name}}</label>
 										<div class="form-group">
-											<textarea class="form-control" id="about-me" rows="3" name="about-me" required></textarea>
+											<textarea class="form-control" id="about-me" rows="3" name="about-me" required>{{$company->description}}</textarea>
 										</div>
 										<!--/.form-group-->
 									</div>
