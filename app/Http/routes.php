@@ -73,4 +73,9 @@ Route::group(['prefix' => 'company'], function () {
 		'as' 	=> 'company.{id}.edit'
 	]);
 
+	Route::get('search/{keyword}', [
+		'uses' 	=> 'CompanyController@search', 
+		'as' 	=> 'company.search.{keyword}'
+	]);
+
 });
