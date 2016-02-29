@@ -60,4 +60,12 @@ class CompanyController extends Controller
 		$company = $this->company($id);
 		return view('pages.company_edit', compact('company'));
 	}
+
+	public function search($keyword)
+	{
+		
+		
+		//$company = $this->company($id);
+		return view('pages.search');
+	}
 }
