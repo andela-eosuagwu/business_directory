@@ -52,15 +52,15 @@
 							</div>
 						</header>
 						<div class="row">
-							@if(1==0)
+							@if(1==1)
 							<aside class="col-md-4 col-sm-4" id="detail-sidebar">
 								<!--Contact-->
 								<section>
 									<header><h3>Contact</h3></header>
 									<address>
 										<div>Max Five Lounge</div>
-										<div>63 Birch Street</div>
-										<div>Granada Hills, CA 91344</div>
+										<div>{{$data['company']->address['street']}}</div>
+										<div>{{$data['company']->address['town']}}</div>
 										<figure>
 											<div class="info">
 												<i class="fa fa-mobile"></i>
