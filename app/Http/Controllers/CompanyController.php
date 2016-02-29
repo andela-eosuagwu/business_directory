@@ -13,7 +13,7 @@ class CompanyController extends Controller
 	{
 		$companies =  $this->companyRepository->getAllCompanies();
 		return $companies;
-	
+		
 		return view('pages.companies', compact('companies'));
 	}
 
@@ -63,8 +63,6 @@ class CompanyController extends Controller
 
 	public function search($keyword)
 	{
-		
-		
 		//$company = $this->company($id);
 		return view('pages.search');
 	}
