@@ -63,7 +63,13 @@ class CompanyController extends Controller
 
 	public function search($keyword)
 	{
-		//$company = $this->company($id);
+
+
+		$data = [
+			"companies" => "fraeraeraer",
+		];
+		
+		//return $data;
 		return view('pages.search');
 	}
 }
