@@ -43,8 +43,6 @@ Route::get('users', [
 	'as' => 'register'
 ]);
 
-
-
 Route::group(['prefix' => 'companies'], function () {
 
 	Route::get('/', [

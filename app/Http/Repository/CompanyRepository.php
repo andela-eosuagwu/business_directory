@@ -21,11 +21,12 @@ class CompanyRepository
 	{
 		$new_company = new Company;
 
-		$new_company->role 		= 1;
-		$new_company->tags 		= json_encode($data['tags']);
+		$new_company->tags 		= $data['tags'];
+		$new_company->type 		= $data['type'];
 		$new_company->name 		= $data['name'];
+		$new_company->status 		= 0;
 		$new_company->user_id		= $data['user_id'];
-		$new_company->images		= json_encode($data['images']);
+		$new_company->images		= $data['images'];
 		$new_company->address 		= $data['address'];
 		$new_company->description 	= $data['description'];
 		

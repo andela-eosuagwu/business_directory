@@ -87,7 +87,8 @@
 													<div class="icon">
 														<i class="fa fa-thumbs-up"></i>
 													</div>
-													<img src="assets/img/items/1.jpg" alt="">
+													{{$company['image']['logo']}}
+													<img src="{{$company['image']['logo']}}" alt="">
 												</a>
 											</div>
 											<div class="wrapper">

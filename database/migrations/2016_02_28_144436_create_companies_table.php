@@ -16,11 +16,11 @@ class CreateCompaniesTable extends Migration
 			$table->increments('id');
 			$table->string('name');
 			$table->string('description');
-			$table->json('address');
+			$table->json('address')->nullable();
 			$table->string('type');
 			$table->json('images')->nullable();
 			$table->json('tags')->nullable();
-			$table->integer('role')->nullable();
+			$table->integer('status')->nullable();
 			
 			$table->integer('user_id')->unsigned();
 			

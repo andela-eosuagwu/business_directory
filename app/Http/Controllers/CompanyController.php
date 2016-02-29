@@ -11,20 +11,34 @@ class CompanyController extends Controller
 {
 	public function index()
 	{
-		
 		$companies =  $this->companyRepository->getAllCompanies();
+		return $companies;
+	
 		return view('pages.companies', compact('companies'));
 	}
 
 	public function create()
-	{
+	{	
+		$url = "https://pixabay.com/static/uploads/photo/2015/01/31/05/05/background-618226_960_720.png";
+		$image = [
+			'logo' 		=> $url,
+			"album"	=>[$url, $url, $url],
+		];
 		
-		$data['role'] 		= 0;
+		$address = [
+			"street" 	=> "hjferf rjhrfe rjhraer",
+			"town" 	=> "rjhfearfaerhferhferfer",
+			"state"		=> "herjerhfejrhejrherherjher",
+			"country"	=> "herjerhfejrhejrherherjher",
+		];
+
 		$data['tags'] 		= ['fjhwfeferfe', 'fjhfjehrfjer'];
+		$data['type'] 		= "cafe";
 		$data['name'] 	= "andela";
+		$data['status'] 	= 0;
+		$data['images'] 	= $image;
 		$data['user_id'] 	= 1;
-		$data['images'] 	= ['fjhwfeferfe', 'fjhfjehrfjer'];
-		$data['address'] 	= "jhrfaejrhfaehrgfearg";
+		$data['address'] 	= $address;
 		$data['description']	= "hefafjhajchscjshjdhvdjfhvdhf";
 
 		return $this->companyRepository->createCompany($data);
@@ -32,7 +46,13 @@ class CompanyController extends Controller
 
 	public function company($id)
 	{
-		return $this->companyRepository->getCompanyById($id);
+		$company =  $this->companyRepository->getCompanyById($id);
+		
+		$data = [
+			"company" => $company,
+		];
+
+		return view('pages.company_detail', compact('data'));
 	}
 
 	public function edit($id)

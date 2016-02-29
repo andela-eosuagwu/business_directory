@@ -11,6 +11,7 @@ class Company extends Model
 		'tags',
 		'type',
 		'name',
+		'status',
 		'user_id',
 		'images',
 		'address',
@@ -19,12 +20,8 @@ class Company extends Model
 
 	protected $casts = [
 		'tags' 		=> 'json',
-		'images' 	=> 'json'
-		'address' 	=> 'json'
+		'images' 	=> 'json',
+		'address' 	=> 'json',
 	];
 }
 
-/*
-address will be an array
-
-*/
