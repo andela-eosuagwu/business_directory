@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class CompanyController extends Controller
@@ -17,31 +16,19 @@ class CompanyController extends Controller
 		return view('pages.companies', compact('companies'));
 	}
 
-	public function create()
+	public function create(Request $request)
 	{	
+
 		$url = "https://pixabay.com/static/uploads/photo/2015/01/31/05/05/background-618226_960_720.png";
 		$image = [
 			'logo' 		=> $url,
 			"album"	=>[$url, $url, $url],
 		];
-		
-		$address = [
-			"street" 	=> "hjferf rjhrfe rjhraer",
-			"town" 	=> "rjhfearfaerhferhferfer",
-			"state"		=> "herjerhfejrhejrherherjher",
-			"country"	=> "herjerhfejrhejrherherjher",
-		];
 
-		$data['tags'] 		= ['fjhwfeferfe', 'fjhfjehrfjer'];
-		$data['type'] 		= "cafe";
-		$data['name'] 	= "andela";
-		$data['status'] 	= 0;
-		$data['images'] 	= $image;
-		$data['user_id'] 	= 1;
-		$data['address'] 	= $address;
-		$data['description']	= "hefafjhajchscjshjdhvdjfhvdhf";
+		$request['images'] = $image;
+		$request['user_id'] = 1;
 
-		return $this->companyRepository->createCompany($data);
+		return $this->companyRepository->createCompany($request->all());
 	}
 
 	public function company($id)

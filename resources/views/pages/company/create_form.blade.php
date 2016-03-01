@@ -3,21 +3,25 @@
 		<h1 class="page-title">Submit Item</h1>
 	</header>
 
-	<form id="form-submit" role="form" method="post" action="?" enctype="multipart/form-data">
+	<form id="form-submit" role="form" method="post" action="/company/create" enctype="multipart/form-data">
+		
+		<input type="text"  hidden="true" name="_token" value="{{ csrf_token() }}">
+		
 		<section>
 			<div class="form-group large">
 				<label for="title">Company Name</label>
-				<input type="text" class="form-control" id="title" name="title">
+				<input type="text" class="form-control" id="title" name="company_name">
 			</div>
 		</section>
 
 		<section>
 			<h3>Address & Contact</h3>
 			<div class="row">
+				
 				<div class="col-md-4 col-sm-4">
 					<div class="form-group">
 						<label for="state">State</label>
-						<input type="text" class="form-control" id="state" name="state">
+						<input type="text" class="form-control" id="state" name="address[state]">
 					</div>
 				</div>
 				
@@ -26,13 +30,13 @@
 						<div class="col-md-8 col-sm-8">
 							<div class="form-group">
 								<label for="city">City</label>
-								<input type="text" class="form-control" id="city" name="city">
+								<input type="text" class="form-control" id="city" name="address[city]">
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-4">
 							<div class="form-group">
 								<label for="zip">ZIP</label>
-								<input type="text" class="form-control" id="zip" name="zip" pattern="\d*">
+								<input type="text" class="form-control" id="zip" name="address[zip]" pattern="\d*">
 							</div>
 						</div>
 					</div>
@@ -41,7 +45,7 @@
 				<div class="col-md-4 col-sm-4">
 					<div class="form-group">
 						<label for="street">Street</label>
-						<input type="text" class="form-control" id="street" name="street">
+						<input type="text" class="form-control" id="street" name="address[street]">
 					</div>
 				</div>
 		
@@ -51,7 +55,7 @@
 				<div class="col-md-4 col-sm-4">
 					<div class="form-group">
 						<label for="phone-number">Phone Number</label>
-						<input type="text" class="form-control" id="phone-number" name="phone-number" pattern="\d*">
+						<input type="text" class="form-control" id="phone-number" name="phone_number" pattern="\d*">
 					</div>
 				</div>
 				<!--/.col-md-4-->
@@ -73,11 +77,10 @@
 		</section>
 		
 		<section>
-			<h3><i class="fa fa-info-circle"></i>About Me</h3>
+			<h3><i class="fa fa-info-circle"></i>About Your Company</h3>
 			<div class="form-group">
-				<label for="about-me">Some Words About Me</label>
 				<div class="form-group">
-					<textarea class="form-control" id="about-me" rows="3" name="about-me" required=""></textarea>
+					<textarea class="form-control" id="about-me" rows="3" name="description" required=""></textarea>
 				</div>
 			</div>
 		</section>

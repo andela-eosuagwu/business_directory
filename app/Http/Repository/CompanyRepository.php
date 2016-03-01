@@ -21,14 +21,15 @@ class CompanyRepository
 	{
 		$new_company = new Company;
 
-		$new_company->tags 		= $data['tags'];
-		$new_company->type 		= $data['type'];
-		$new_company->name 		= $data['name'];
+		$new_company->name 		= $data['company_name'];
 		$new_company->status 		= 0;
-		$new_company->user_id		= $data['user_id'];
+		$new_company->email		= $data['email'];
 		$new_company->images		= $data['images'];
+		$new_company->user_id		= $data['user_id'];
+		$new_company->website 		= $data['website'];
 		$new_company->address 		= $data['address'];
 		$new_company->description 	= $data['description'];
+		$new_company->phone_number 	= $data['phone_number'];
 		
 		$new_company->save();
 	}
