@@ -63,8 +63,6 @@ class CompanyController extends Controller
 
 	public function search($keyword)
 	{
-
-
 		$data = [
 			"companies" => "fraeraeraer",
 		];
