@@ -16,8 +16,19 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-	return view('welcome');
+	return view('pages.index.index');
 });
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/login', function () {
 	return view('pages.login');
@@ -58,7 +69,11 @@ Route::group(['prefix' => 'company'], function () {
 		return view('pages.company_detail');
 	});	
 
-	Route::get('create', [
+	Route::get('create', function ()    {
+		return view('pages.company.create');
+	});	
+
+	Route::post('create', [
 		'uses' 	=> 'CompanyController@create', 
 		'as' 	=> 'company.create'
 	]);

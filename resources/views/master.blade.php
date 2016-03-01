@@ -7,7 +7,7 @@
 
 		@yield('content')
 
-		@include('pages.includes.sections.script')
+			@include('pages.includes.sections.script')
 	</body>
 </html>
 	
