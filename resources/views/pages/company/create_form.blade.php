@@ -6,11 +6,11 @@
 	<form id="form-submit" role="form" method="post" action="?" enctype="multipart/form-data">
 		<section>
 			<div class="form-group large">
-				<label for="title">Title</label>
+				<label for="title">Company Name</label>
 				<input type="text" class="form-control" id="title" name="title">
 			</div>
 		</section>
-		
+
 		<section>
 			<h3>Address & Contact</h3>
 			<div class="row">
@@ -20,7 +20,7 @@
 						<input type="text" class="form-control" id="state" name="state">
 					</div>
 				</div>
-				<!--/.col-md-4-->
+				
 				<div class="col-md-4 col-sm-4">
 					<div class="row">
 						<div class="col-md-8 col-sm-8">
@@ -37,16 +37,16 @@
 						</div>
 					</div>
 				</div>
-				<!--/.col-md-4-->
+		
 				<div class="col-md-4 col-sm-4">
 					<div class="form-group">
 						<label for="street">Street</label>
 						<input type="text" class="form-control" id="street" name="street">
 					</div>
 				</div>
-				<!--/.col-md-4-->
+		
 			</div>
-			<!--/.row-->
+		
 			<div class="row">
 				<div class="col-md-4 col-sm-4">
 					<div class="form-group">
@@ -70,13 +70,19 @@
 				</div>
 				<!--/.col-md-4-->
 			</div>
-			<!--/.row-->
 		</section>
-		<!--/#address-contact-->
+		
 		<section>
-			<h3>Map</h3>
-			<div id="map-simple" class="map-submit"></div>
+			<h3><i class="fa fa-info-circle"></i>About Me</h3>
+			<div class="form-group">
+				<label for="about-me">Some Words About Me</label>
+				<div class="form-group">
+					<textarea class="form-control" id="about-me" rows="3" name="about-me" required=""></textarea>
+				</div>
+			</div>
 		</section>
+
+
 		<section>
 			<h3>Features</h3>
 			<ul class="list-unstyled checkboxes">
@@ -97,246 +103,7 @@
 				<li><div class="checkbox"><label><input type="checkbox" name="features[]" value="15">Night Bar</label></div></li>
 			</ul>
 		</section>
-		<!--Menu-->
-		<section>
-			<h3>Menu & Wine List</h3>
-			<div class="row">
-				<div class="col-md-3">
-					<!-- Nav tabs -->
-					<ul class="nav nav-pills nav-stacked">
-						<li class="active"><a href="#tab-menu" data-toggle="tab">Menu</a></li>
-						<li><a href="#tab-daily-menu" data-toggle="tab">Daily Menu</a></li>
-						<li><a href="#tab-wine-list" data-toggle="tab">Wine List</a></li>
-					</ul>
-				</div>
-				<div class="col-md-9">
-					<!-- Tab panes -->
-					<div class="tab-content menu min-height-160">
-						<div class="tab-pane fade in active" id="tab-menu">
-							<article>
-								<div class="row">
-									<div class="col-md-1">
-										<div class="menu-icon"><i class="fa fa-cutlery"></i><span>1</span></div>
-									</div>
-									<div class="col-md-11">
-										<div class="row">
-											<div class="col-md-10">
-												<div class="form-group">
-													<input type="text" class="form-control" name="menu-title[]" placeholder="Title">
-												</div>
-											</div>
-											<!-- /.col-md-10-->
-											<div class="col-md-2">
-												<div class="form-group">
-													<input type="text" class="form-control" name="menu-price[]" placeholder="Price">
-												</div>
-											</div>
-											<!-- /.col-md-2-->
-										</div>
-										<!-- /.row-->
-										<div class="form-group">
-											<input type="text" class="form-control" name="menu-description[]" placeholder="Description">
-										</div>
-										<!-- /.form-group -->
-										<div class="form-group">
-											<button type="submit" class="btn framed icon">Add More<i class="fa fa-plus"></i></button>
-										</div>
-										<!-- /.form-group -->
-									</div>
-									<!--/.col-md-11-->
-								</div>
-								<!--/.row-->
-							</article>
-						</div>
-						<!--/#tab-menu-->
-						<div class="tab-pane fade" id="tab-daily-menu">
-							<article>
-								<div class="row">
-									<div class="col-md-1">
-										<div class="menu-icon"><i class="fa fa-cutlery"></i><span>1</span></div>
-									</div>
-									<div class="col-md-11">
-										<div class="row">
-											<div class="col-md-10">
-												<div class="form-group">
-													<input type="text" class="form-control" name="menu-title[]" placeholder="Title">
-												</div>
-											</div>
-											<!-- /.col-md-10-->
-											<div class="col-md-2">
-												<div class="form-group">
-													<input type="text" class="form-control" name="menu-price[]" placeholder="Price">
-												</div>
-											</div>
-											<!-- /.col-md-2-->
-										</div>
-										<!-- /.row-->
-										<div class="form-group">
-											<input type="text" class="form-control" name="menu-description[]" placeholder="Description">
-										</div>
-										<!-- /.form-group -->
-										<div class="form-group">
-											<button type="submit" class="btn framed icon">Add More<i class="fa fa-plus"></i></button>
-										</div>
-										<!-- /.form-group -->
-									</div>
-									<!--/.col-md-11-->
-								</div>
-								<!--/.row-->
-							</article>
-						</div>
-						<!--/#tab-daily-menu-->
-						<div class="tab-pane fade" id="tab-wine-list">
-							<article>
-								<div class="row">
-									<div class="col-md-1">
-										<div class="menu-icon"><i class="fa fa-glass"></i><span>1</span></div>
-									</div>
-									<div class="col-md-11">
-										<div class="row">
-											<div class="col-md-10">
-												<div class="form-group">
-													<input type="text" class="form-control" name="menu-title[]" placeholder="Title">
-												</div>
-											</div>
-											<!-- /.col-md-10-->
-											<div class="col-md-2">
-												<div class="form-group">
-													<input type="text" class="form-control" name="menu-price[]" placeholder="Price">
-												</div>
-											</div>
-											<!-- /.col-md-2-->
-										</div>
-										<!-- /.row-->
-										<div class="form-group">
-											<input type="text" class="form-control" name="menu-description[]" placeholder="Description">
-										</div>
-										<!-- /.form-group -->
-										<div class="form-group">
-											<button type="submit" class="btn framed icon">Add More<i class="fa fa-plus"></i></button>
-										</div>
-										<!-- /.form-group -->
-									</div>
-									<!--/.col-md-11-->
-								</div>
-								<!--/.row-->
-							</article>
-						</div>
-						<!--/#tab-wine-list-->
-					</div>
-					<!--end Tab panes-->
-				</div>
-				<!--/.col-md-9-->
-			</div>
-			<!--/.row-->
-		</section>
-		<!--end Menu-->
-		<!--Gallery-->
-		<section>
-			<h3>Gallery</h3>
-			<div id="file-submit" class="dropzone">
-				<input name="file" type="file" multiple>
-				<div class="dz-default dz-message"><span>Click or Drop Images Here</span></div>
-			</div>
-		</section>
-		<!--end Gallery-->
-		<!--Opening Hours-->
-		<section>
-			<h3>Opening Hours</h3>
-			<div class="opening-hours">
-				<div class="table-responsive">
-					<table class="table">
-						<tbody>
-						<tr class="day">
-							<td class="day-name">Monday</td>
-							<td class="from"><input class="oh-timepicker" type="text" placeholder="From" name="open-hour-from[]"></td>
-							<td class="to"><input class="oh-timepicker" type="text" placeholder="To" name="open-hour-to[]"></td>
-							<td class="non-stop"><div class="checkbox">
-								<label>
-									<input type="checkbox">Non-stop
-								</label>
-							</div>
-							</td>
-						</tr>
-						<!--/.day-->
-						<tr class="day">
-							<td class="day-name">Tuesday</td>
-							<td class="from"><input class="oh-timepicker" type="text" placeholder="From" name="open-hour-from[]"></td>
-							<td class="to"><input class="oh-timepicker" type="text" placeholder="To" name="open-hour-to[]"></td>
-							<td class="non-stop"><div class="checkbox">
-								<label>
-									<input type="checkbox">Non-stop
-								</label>
-							</div>
-							</td>
-						</tr>
-						<!--/.day-->
-						<tr class="day">
-							<td class="day-name">Wednesday</td>
-							<td class="from"><input class="oh-timepicker" type="text" placeholder="From" name="open-hour-from[]"></td>
-							<td class="to"><input class="oh-timepicker" type="text" placeholder="To" name="open-hour-to[]"></td>
-							<td class="non-stop"><div class="checkbox">
-								<label>
-									<input type="checkbox">Non-stop
-								</label>
-							</div>
-							</td>
-						</tr>
-						<!--/.day-->
-						<tr class="day">
-							<td class="day-name">Thursday</td>
-							<td class="from"><input class="oh-timepicker" type="text" placeholder="From" name="open-hour-from[]"></td>
-							<td class="to"><input class="oh-timepicker" type="text" placeholder="To" name="open-hour-to[]"></td>
-							<td class="non-stop"><div class="checkbox">
-								<label>
-									<input type="checkbox">Non-stop
-								</label>
-							</div>
-							</td>
-						</tr>
-						<!--/.day-->
-						<tr class="day">
-							<td class="day-name">Friday</td>
-							<td class="from"><input class="oh-timepicker" type="text" placeholder="From" name="open-hour-from[]"></td>
-							<td class="to"><input class="oh-timepicker" type="text" placeholder="To" name="open-hour-to[]"></td>
-							<td class="non-stop"><div class="checkbox">
-								<label>
-									<input type="checkbox">Non-stop
-								</label>
-							</div>
-							</td>
-						</tr>
-						<!--/.day-->
-						<tr class="day weekend">
-							<td class="day-name">Saturday</td>
-							<td class="from"><input class="oh-timepicker" type="text" placeholder="From" name="open-hour-from[]"></td>
-							<td class="to"><input class="oh-timepicker" type="text" placeholder="To" name="open-hour-to[]"></td>
-							<td class="non-stop"><div class="checkbox">
-								<label>
-									<input type="checkbox">Non-stop
-								</label>
-							</div>
-							</td>
-						</tr>
-						<!--/.day-->
-						<tr class="day weekend">
-							<td class="day-name">Sunday</td>
-							<td class="from"><input class="oh-timepicker" type="text" placeholder="From" name="open-hour-from[]"></td>
-							<td class="to"><input class="oh-timepicker" type="text" placeholder="To" name="open-hour-to[]"></td>
-							<td class="non-stop"><div class="checkbox">
-								<label>
-									<input type="checkbox">Non-stop
-								</label>
-							</div>
-							</td>
-						</tr>
-						<!--/.day-->
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</section>
-		<!--end Opening Hours-->
+		
 		<hr>
 		<section>
 			<figure class="pull-left margin-top-15">
