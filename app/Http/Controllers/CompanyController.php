@@ -11,9 +11,8 @@ class CompanyController extends Controller
 	public function index()
 	{
 		$companies =  $this->companyRepository->getAllCompanies();
-		return $companies;
-		
-		return view('pages.companies', compact('companies'));
+		//return $companies;
+		return view('pages.company.all_company', compact('companies'));
 	}
 
 	public function create(Request $request)
