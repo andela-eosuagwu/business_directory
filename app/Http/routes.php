@@ -73,7 +73,7 @@ Route::group(['prefix' => 'company'], function () {
 	]);
 
 	Route::get('{id}', [
-		'uses' 	=> 'CompanyController@company', 
+		'uses' 	=> 'CompanyController@view', 
 		'as' 	=> 'company.{id}'
 	]);
 
