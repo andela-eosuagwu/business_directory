@@ -24,12 +24,6 @@ Route::get('/home', function () {
 
 
 
-
-
-
-
-
-
 Route::get('/login', function () {
 	return view('pages.login');
 });

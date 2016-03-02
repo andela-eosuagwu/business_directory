@@ -39,7 +39,7 @@ class CompanyController extends Controller
 			"company" => $company,
 		];
 
-		return view('pages.company_detail', compact('data'));
+		return view('pages.company.view', compact('data'));
 	}
 
 	public function edit($id)
