@@ -29,42 +29,44 @@
 
 				<!--Listing List-->
 				<section class="block listing">
-					<div class="item list">
-						<div class="image">
-							<div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
-							<a href="item-detail.html">
-								<div class="overlay">
-									<div class="inner">
-										<div class="content">
-											<h4>Description</h4>
-											<p>Curabitur odio nibh, luctus non pulvinar a, ultricies ac diam. Donec neque massa</p>
+					@foreach($companies as $company)
+						<div class="item list">
+							<div class="image">
+								<div class="quick-view"><i class="fa fa-eye"></i><span>Quick View</span></div>
+								<a href="/company/{{$company->id}}">
+									<div class="overlay">
+										<div class="inner">
+											<div class="content">
+												<h4>Description</h4>
+												<p>{{$company->name}}</p>
+											</div>
 										</div>
 									</div>
+									<div class="item-specific">
+										<span title="Bedrooms"><img src="assets/img/bedrooms.png" alt="">2</span>
+										<span title="Bathrooms"><img src="assets/img/bathrooms.png" alt="">2</span>
+										<span title="Area"><img src="assets/img/area.png" alt="">240m<sup>2</sup></span>
+										<span title="Garages"><img src="assets/img/garages.png" alt="">1</span>
+									</div>
+									<div class="icon">
+										<i class="fa fa-thumbs-up"></i>
+									</div>
+									<img src="{{$company->images['logo']}}" alt="">
+								</a>
+							</div>
+							<div class="wrapper">
+								<a href="/company/{{$company->id}}"><h3>{{$company->name}}</h3></a>
+								<figure>{{$company->address['street']}}</figure>
+								<div class="info">
+									<div class="type">
+										<i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
+										<span>Restaurant</span>
+									</div>
+									<div class="rating" data-rating="4"></div>
 								</div>
-								<div class="item-specific">
-									<span title="Bedrooms"><img src="assets/img/bedrooms.png" alt="">2</span>
-									<span title="Bathrooms"><img src="assets/img/bathrooms.png" alt="">2</span>
-									<span title="Area"><img src="assets/img/area.png" alt="">240m<sup>2</sup></span>
-									<span title="Garages"><img src="assets/img/garages.png" alt="">1</span>
-								</div>
-								<div class="icon">
-									<i class="fa fa-thumbs-up"></i>
-								</div>
-								<img src="assets/img/items/1.jpg" alt="">
-							</a>
-						</div>
-						<div class="wrapper">
-							<a href="item-detail.html"><h3>Cash Cow Restaurante</h3></a>
-							<figure>63 Birch Street</figure>
-							<div class="info">
-								<div class="type">
-									<i><img src="assets/icons/restaurants-bars/restaurants/restaurant.png" alt=""></i>
-									<span>Restaurant</span>
-								</div>
-								<div class="rating" data-rating="4"></div>
 							</div>
 						</div>
-					</div>
+					@endforeach
 				</section>
 				<!--end Listing List-->
 				<!--Pagination-->

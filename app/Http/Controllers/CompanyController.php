@@ -12,6 +12,7 @@ class CompanyController extends Controller
 	{
 		$companies =  $this->companyRepository->getAllCompanies();
 		//return $companies;
+		
 		return view('pages.company.all_company', compact('companies'));
 	}
 
