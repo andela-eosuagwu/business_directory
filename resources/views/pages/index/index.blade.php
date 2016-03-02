@@ -1,18 +1,17 @@
 <html>
-{! load_asset() !}
 	<head>
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link href="assets/fonts/font-awesome.css" rel="stylesheet" type="text/css">
 		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="{ secure_asset('/bootstrap/css/bootstrap.css') }" type="text/css">
-		<link rel="stylesheet" href="{ secure_asset('/css/bootstrap-select.min.css') }" type="text/css">
-		<link rel="stylesheet" href="{ secure_asset('/css/owl.carousel.css') }" type="text/css">
-		<link rel="stylesheet" href="{ secure_asset('/css/jquery.mCustomScrollbar.css') }" type="text/css">
-		<link rel="stylesheet" href="{ secure_asset('/css/jquery.nouislider.min.css') }" type="text/css">
-		<link rel="stylesheet" href="{ secure_asset('/css/colors/green.css') }" type="text/css">
-		<link rel="stylesheet" href="{ secure_asset('/css/user.style.css') }" type="text/css">
+		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" type="text/css">
+		<link rel="stylesheet" href="assets/css/bootstrap-select.min.css" type="text/css">
+		<link rel="stylesheet" href="assets/css/owl.carousel.css" type="text/css">
+		<link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.css" type="text/css">
+		<link rel="stylesheet" href="assets/css/jquery.nouislider.min.css" type="text/css">
+		<link rel="stylesheet" href="assets/css/colors/green.css" type="text/css">
+		<link rel="stylesheet" href="assets/css/user.style.css" type="text/css">
 
 		<title>Spotter - Universal Directory Listing HTML Template</title>
 
