@@ -82,6 +82,11 @@ Route::group(['prefix' => 'company'], function () {
 		'as' 	=> 'company.{id}.edit'
 	]);
 
+	Route::post('update', [
+		'uses' 	=> 'CompanyController@update', 
+		'as' 	=> 'company.update'
+	]);
+
 	Route::get('search/{keyword}', [
 		'uses' 	=> 'CompanyController@search', 
 		'as' 	=> 'company.search.{keyword}'

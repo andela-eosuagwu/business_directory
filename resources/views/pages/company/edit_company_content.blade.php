@@ -43,7 +43,8 @@
 			</header>
 			<div class="row">
 				<div class="col-md-9">
-					<form id="form-profile" role="form" method="post" action="?" enctype="multipart/form-data">
+					<form id="form-profile" role="form" method="post" action="/company/update" enctype="multipart/form-data">
+						<input name="_token" hidden="true" type="text" value="{{ csrf_token() }}">
 						<div class="row">
 							<!--Profile Picture-->
 							<div class="col-md-3 col-sm-3">
@@ -65,19 +66,31 @@
 									<h3><i class="fa fa-map-marker"></i>Address</h3>
 									<div class="form-group">
 										<label for="state">Name</label>
-										<input type="text" class="form-control" id="state" name="state" value="{{$company->name}}">
+										<input type="text" class="form-control" id="state" name="name" value="{{$company->name}}">
 									</div>
-									<!--/.form-group-->
-									<div class="form-group">
-										<label for="city">City</label>
-										<input type="text" class="form-control" id="city" name="city" value="Georgetown">
+									<div class="row">
+										<div class="col-md-8 col-sm-8">
+											<div class="form-group">
+												<label for="street">State</label>
+												<input type="text" class="form-control" id="street" name="address[state]" value="{{$company->address['state']}}">
+											</div>
+											<!--/.form-group-->
+										</div>
+										<!--/.col-md-8-->
+										<div class="col-md-4 col-sm-4">
+											<div class="form-group">
+												<label for="zip">City</label>
+												<input type="text" class="form-control" id="zip" name="address[city]"  value="{{$company->address['city']}}">
+											</div>
+											<!--/.form-group-->
+										</div>
 									</div>
-									<!--/.form-group-->
+
 									<div class="row">
 										<div class="col-md-8 col-sm-8">
 											<div class="form-group">
 												<label for="street">Street</label>
-												<input type="text" class="form-control" id="street" name="street" value="">
+												<input type="text" class="form-control" id="street" name="address[street]" value="{{$company->address['street']}}">
 											</div>
 											<!--/.form-group-->
 										</div>
@@ -85,24 +98,37 @@
 										<div class="col-md-4 col-sm-4">
 											<div class="form-group">
 												<label for="zip">ZIP</label>
-												<input type="text" class="form-control" id="zip" name="zip" pattern="\d*" value="80444">
+												<input type="text" class="form-control" id="zip" name="address[zip]" pattern="\d*" value="{{$company->address['zip']}}">
 											</div>
 											<!--/.form-group-->
 										</div>
 									</div>
-									<!--/.col-md-3-->
-									<div class="form-group">
-										<label for="additional-address">Additional Address Line</label>
-										<input type="text" class="form-control" id="additional-address" name="additional-address">
+
+									<div class="row">
+										<div class="col-md-8 col-sm-8">
+											<div class="form-group">
+												<label for="street">Email</label>
+												<input type="email" class="form-control" id="street" name="email" value="{{$company->email}}">
+											</div>
+											<!--/.form-group-->
+										</div>
+										<!--/.col-md-8-->
+										<div class="col-md-4 col-sm-4">
+											<div class="form-group">
+												<label for="zip">Website</label>
+												<input type="text" class="form-control" id="zip" name="address[zip]" pattern="\d*" value="{{$company->website}}">
+											</div>
+											<!--/.form-group-->
+										</div>
 									</div>
-									<!--/.form-group-->
+									
 								</section>
 								<section>
 									<h3><i class="fa fa-info-circle"></i>Description</h3>
 									<div class="form-group">
 										<label for="about-me" style="text-transform: capitalize;">Some Words About {{$company->name}}</label>
 										<div class="form-group">
-											<textarea class="form-control" id="about-me" rows="3" name="about-me" required>{{$company->description}}</textarea>
+											<textarea class="form-control" id="about-me" rows="3" name="description" required>{{$company->description}}</textarea>
 										</div>
 										<!--/.form-group-->
 									</div>
@@ -121,25 +147,7 @@
 				<div class="col-md-3 col-sm-9">
 					<h3><i class="fa fa-asterisk"></i>Password Change</h3>
 					<form class="framed" id="form-password" role="form" method="post" action="?" >
-						<div class="form-group">
-							<label for="current-password">Current Password</label>
-							<input type="password" class="form-control" id="current-password" name="current-password">
-						</div>
-						<!--/.form-group-->
-						<div class="form-group">
-							<label for="new-password">New Password</label>
-							<input type="password" class="form-control" id="new-password" name="new-password">
-						</div>
-						<!--/.form-group-->
-						<div class="form-group">
-							<label for="confirm-new-password">Confirm New Password</label>
-							<input type="password" class="form-control" id="confirm-new-password" name="confirm-new-password">
-						</div>
-						<!--/.form-group-->
-						<div class="form-group">
-							<button type="submit" class="btn btn-default">Change Password</button>
-						</div>
-						<!-- /.form-group -->
+						we could add some info here is we like
 					</form>
 				</div>
 				<!-- /.col-md-3-->

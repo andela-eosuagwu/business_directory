@@ -49,13 +49,19 @@ class CompanyController extends Controller
 		return view('pages.company.edit', compact('company'));
 	}
 
+	public function update(Request $request)
+	{
+		return $request->all();
+
+		
+	}
+
 	public function search($keyword)
 	{
 		$data = [
 			"companies" => "fraeraeraer",
 		];
 		
-		//return $data;
 		return view('pages.search');
 	}
 }
