@@ -39,4 +39,11 @@ class CompanyRepository
 		return User::where('email', $email)->get();
 	}
 
+	public function updateCompany($data)
+	{
+		return $this->getCompanyById($data['company_id']);
+
+
+	}
+
 }
