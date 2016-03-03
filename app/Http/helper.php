@@ -6,4 +6,4 @@ function load_asset($asset_url)
 function domain_name()
 {
     return Request::root();
-}
+} 

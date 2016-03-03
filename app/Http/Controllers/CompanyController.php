@@ -44,8 +44,9 @@ class CompanyController extends Controller
 
 	public function edit($id)
 	{
-		$company = $this->company($id);
-		return view('pages.company_edit', compact('company'));
+		$company = $this->companyRepository->getCompanyById($id);
+		
+		return view('pages.company.edit', compact('company'));
 	}
 
 	public function search($keyword)
