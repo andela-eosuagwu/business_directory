@@ -48,6 +48,12 @@ Route::get('users', [
 	'as' => 'register'
 ]);
 
+Route::get('user/edit', [
+	'uses' => 'UserController@edit', 
+	'as' => 'edit.user'
+]);
+
+
 Route::group(['prefix' => 'companies'], function () {
 
 	Route::get('/', [
