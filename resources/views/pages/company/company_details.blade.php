@@ -310,23 +310,24 @@
 									<header>
 										<h2>Write a Review</h2>
 									</header>
-									
-									<form id="form-review" role="form" method="post" action="?" class="background-color-white">
+
+									<form id="form-review" role="form" method="post" action="/company/review" class="background-color-white">
 										<div class="row">
+											<input type="text"  hidden="true"  name="_token" value="{{ csrf_token() }}">
 											<div class="col-md-8">
 												<div class="form-group">
 													<label for="form-review-name">Name</label>
-													<input type="text" class="form-control" id="form-review-name" name="form-review-name" required="">
+													<input type="text" class="form-control" id="form-review-name" name="name" required="">
 												</div>
 												<!-- /.form-group -->
 												<div class="form-group">
 													<label for="form-review-email">Email</label>
-													<input type="email" class="form-control" id="form-review-email" name="form-review-email" required="">
+													<input type="email" class="form-control" id="form-review-email" name="email" required="">
 												</div>
 												<!-- /.form-group -->
 												<div class="form-group">
 													<label for="form-review-message">Message</label>
-													<textarea class="form-control" id="form-review-message" name="form-review-message"  rows="3" required=""></textarea>
+													<textarea class="form-control" id="form-review-message" name="message"  rows="3" required=""></textarea>
 												</div>
 												<!-- /.form-group -->
 												<div class="form-group">
