@@ -231,22 +231,11 @@
 									</article>
 									<!-- /.block -->
 									<article class="block">
-										<header><h2>Features</h2></header>
+										<header><h2>Tags</h2></header>
 										<ul class="bullets">
-											<li>Free Parking</li>
-											<li>Cards Accepted</li>
-											<li>Wi-Fi</li>
-											<li>Air Condition</li>
-											<li>Reservations</li>
-											<li>Teambuildings</li>
-											<li>Places to seat</li>
-											<li>Winery</li>
-											<li>Draft Beer</li>
-											<li>LCD</li>
-											<li>Saloon</li>
-											<li>Free Access</li>
-											<li>Terrace</li>
-											<li>Minigolf</li>
+											@foreach($data['company']->tags as $tag)
+												<li>{{$tag}}</li>
+											@endforeach
 										</ul>
 									</article>
 									<!-- /.block -->
