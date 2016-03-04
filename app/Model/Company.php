@@ -26,6 +26,10 @@ class Company extends Model
 		'address' 	=> 'json',
 	];
 
+	public function category(){
+		return $this->belongsTo(Category::class);
+	}
+	
 	public function reviews()
 	{
 		return $this->hasMany('App\Model\Review');

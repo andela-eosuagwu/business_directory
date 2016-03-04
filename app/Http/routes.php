@@ -19,10 +19,10 @@ Route::get('/home', function () {
 	return view('pages.index.index');
 });
 
-
-
-
-
+Route::get('/jsonBusiness',[
+	'uses' => 'CompanyController@jsonBusiness',
+	'as' => 'json'
+]);
 
 Route::get('/login', function () {
 	return view('pages.login');

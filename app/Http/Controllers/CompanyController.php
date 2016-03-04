@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Company;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
@@ -62,5 +63,35 @@ class CompanyController extends Controller
 		];
 		
 		return view('pages.search');
+	}
+
+
+	public function jsonBusiness(){
+		$companies = Company::where('featured','1')->paginate(10);
+		//time to Build Json
+		foreach($companies as $company){
+			$json['data'][] = array(
+				"id" => $company->id,
+				"category" => $company->category->name,
+				"title" => $company->name,
+				"location" => $company->location,
+				"latitude" => $company->gps_lat,
+				"longitude" => $company->gps_lon,
+				"url" => "",
+				"type" => "",
+				"type_icon" => "assets/icons/real-estate/house.png",
+				"rating" => $company->average_ratings,
+				"gallery" => $company->images,
+				"features" => "",
+				"date_created" => $company->created_at,
+				"price" => "",
+				"featured" => $company->featured,
+				"color" => "",
+				"person_id"=> 1,
+				"year"=> $company->year_established,
+				"description"=> $company->description
+			);
+		}
+		return $json;
 	}
 }
