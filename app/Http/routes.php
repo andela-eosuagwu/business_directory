@@ -20,7 +20,7 @@ Route::get('/home', function () {
 });
 
 Route::get('/jsonBusiness',[
-	'uses' => 'CompanyController@jsonBusiness',
+	'uses' => 'UserController@jsonBusiness',
 	'as' => 'json'
 ]);
 
