@@ -41,9 +41,10 @@ class CompanyRepository
 
 	public function updateCompany($data)
 	{
-		return $this->getCompanyById($data['company_id']);
-
-
+		$company =  $this->getCompanyById($data['company_id']);
+	
+		$company->update($data);
+		return $company;
 	}
 
 }
