@@ -270,38 +270,25 @@
 										<!-- /.rating -->
 									</article><!-- /.overall-rating-->
 									<section class="reviews">
+									@foreach($data['company']->reviews as $review)
 										<article class="review">
 											<figure class="author">
-												<img src="assets/img/default-avatar.png" alt="">
-												<div class="date">12.05.2014</div>
+												<img src="https://scontent-lhr3-1.xx.fbcdn.net/hphotos-xla1/v/t1.0-9/12278893_927023407386702_1997231851870811905_n.jpg?oh=27d3563c37ff821a898587ba53534924&oe=575EBB42" alt="">
+												<div class="date">{{$review->created_at->diffForHumans()}}</div>
 											</figure>
-											<!-- /.author-->
+											
 											<div class="wrapper">
-												<h5>Catherine Brown</h5>
+												<h5>{{$review->name}}</h5>
 												<figure class="rating big color" data-rating="4"></figure>
 												<p>
-													Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-													Nulla vestibulum, sem ut sollicitudin consectetur, augue diam ornare massa,
-													ac vehicula leo turpis eget purus. Nunc pellentesque vestibulum mauris,
-													eget suscipit mauris imperdiet vel. Nulla et massa metus.
+													{{$review->message}}
 												</p>
-												<div class="individual-rating">
-													<span>Value</span>
-													<figure class="rating" data-rating="4"></figure>
-												</div>
-												<!-- /.user-rating -->
-												<div class="individual-rating">
-													<span>Service</span>
-													<figure class="rating" data-rating="4"></figure>
-												</div>
-												<!-- /.user-rating -->
-											</div>
-											<!-- /.wrapper-->
+											</div>		
 										</article>
+									@endforeach
 									
-										<!-- /.review -->
 									</section>
-									<!-- /.reviews-->
+									
 								</section>
 								<!-- /#reviews -->
 								<!--end Reviews-->

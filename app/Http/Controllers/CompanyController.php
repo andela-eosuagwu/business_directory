@@ -38,7 +38,6 @@ class CompanyController extends Controller
 			"company" => $company,
 		];
 
-		return $data;
 		return view('pages.company.view', compact('data'));
 	}
 
