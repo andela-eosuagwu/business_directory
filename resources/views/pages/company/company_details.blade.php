@@ -298,33 +298,7 @@
 											</div>
 											<!-- /.wrapper-->
 										</article>
-										<!-- /.review -->
-										<article class="review">
-											<figure class="author">
-												<img src="assets/img/default-avatar.png" alt="">
-												<div class="date">10.05.2014</div>
-											</figure>
-											<!-- /.author-->
-											<div class="wrapper">
-												<h5>John Doe</h5>
-												<figure class="rating big color" data-rating="5"></figure>
-												<p>
-													Nunc pellentesque vestibulum mauris, eget suscipit mauris
-													imperdiet vel. Nulla et massa metus. Nam porttitor quam eget ante
-												</p>
-												<div class="individual-rating">
-													<span>Value</span>
-													<figure class="rating" data-rating="5"></figure>
-												</div>
-												<!-- /.user-rating -->
-												<div class="individual-rating">
-													<span>Service</span>
-													<figure class="rating" data-rating="5"></figure>
-												</div>
-												<!-- /.user-rating -->
-											</div>
-											<!-- /.wrapper-->
-										</article>
+									
 										<!-- /.review -->
 									</section>
 									<!-- /.reviews-->
@@ -336,6 +310,7 @@
 									<header>
 										<h2>Write a Review</h2>
 									</header>
+									
 									<form id="form-review" role="form" method="post" action="?" class="background-color-white">
 										<div class="row">
 											<div class="col-md-8">
