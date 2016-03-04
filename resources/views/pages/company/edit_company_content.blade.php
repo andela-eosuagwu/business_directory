@@ -98,7 +98,7 @@
 										<div class="col-md-4 col-sm-4">
 											<div class="form-group">
 												<label for="zip">ZIP</label>
-												<input type="text" class="form-control" id="zip" name="address[zip]" pattern="\d*" value="{{$company->address['zip']}}">
+												<input type="text" class="form-control" id="zip" name="address[zip]" pattern="\d*" value="{{ $company->address['zip']}}">
 											</div>
 											<!--/.form-group-->
 										</div>
@@ -116,9 +116,9 @@
 										<div class="col-md-4 col-sm-4">
 											<div class="form-group">
 												<label for="zip">Website</label>
-												<input type="text" class="form-control" id="zip" name="address[zip]"  value="{{$company->website}}">
+												<input type="text" class="form-control" id="zip" name="website"  value="{{$company->website}}">
 											</div>
-											<!--/.form-group-->
+
 										</div>
 									</div>
 									

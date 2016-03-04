@@ -44,8 +44,14 @@ class CompanyRepository
 		$company =  Company::where('id', $data['company_id'])
 				->update([
 					'name' 	=> $data['name'],
-					'address'	=> json_encode($data['address'])
+					'email'		=> $data['email'],
+					'website'	=> $data['website'],
+					'address'	=> json_encode($data['address']),
+					'description'	=> $data['description']
 				]);
+
+			return Company::find(1);
 	}
+	
 
 }
