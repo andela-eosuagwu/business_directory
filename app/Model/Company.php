@@ -28,7 +28,7 @@ class Company extends Model
 
 	public function reviews()
 	{
-		return $this->hasMany(Reviews);
+		return $this->hasMany('App\Model\Review');
 	}
 }
 

@@ -14,7 +14,7 @@ class CompanyRepository
 
 	public function getCompanyById($id)
 	{
-		return Company::with('reviews')->where($id);
+		return Company::with('reviews')->where('id',$id)->get();
 	}
 
 	public function createCompany($data)

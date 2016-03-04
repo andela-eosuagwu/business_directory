@@ -34,10 +34,11 @@ class CompanyController extends Controller
 	{
 		$company =  $this->companyRepository->getCompanyById($id);
 		
-	return	$data = [
+		$data = [
 			"company" => $company,
 		];
 
+		return $data;
 		return view('pages.company.view', compact('data'));
 	}
 
