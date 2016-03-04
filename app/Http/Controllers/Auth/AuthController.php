@@ -52,7 +52,10 @@ class AuthController extends Controller
 	{
 		if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']]))
 		{
-			return view('register');
+			return view('pages.company.dashboard');
+		}else{
+			session()->flash('alert-danger', 'Login Credential failed');
+			return redirect()->to('/login');
 		}
 	}
 

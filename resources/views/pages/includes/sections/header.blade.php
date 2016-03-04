@@ -7,7 +7,7 @@
 			<div class="wrapper">
 				<ul class="main-navigation navigation-top-header"></ul>
 				<ul class="user-area">
-					<li><a href="register.html"><strong>Home</strong></a></li>
+					<li><a href="{{ url('/') }}"><strong>Home</strong></a></li>
 					<li><a href="register.html"><strong>Businesses</strong></a></li>
 					<li><a href="register.html"><strong>Blog</strong></a></li>
 					<li><a href="register.html"><strong>Jobs</strong></a></li>
