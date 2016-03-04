@@ -12,16 +12,10 @@
 				<!-- /.search-bar -->
 				<div class="breadcrumb-wrapper">
 					<div class="container">
-						<div class="redefine-search">
-							<a href="#redefine-search-form" class="inner" data-toggle="collapse" aria-expanded="false" aria-controls="redefine-search-form">
-								<span class="icon"></span>
-								<span>Redefine Search</span>
-							</a>
-						</div>
+						@include('pages.includes.sections.search')
 						<ol class="breadcrumb">
-							<li><a href="index-directory.html"><i class="fa fa-home"></i></a></li>
-							<li><a href="#">Page</a></li>
-							<li class="active">Detail</li>
+							<li><a href="{{ url('/') }}"><i class="fa fa-home"></i></a></li>
+							<li class="active">Login</li>
 						</ol>
 						<!-- /.breadcrumb-->
 					</div>
@@ -36,11 +30,16 @@
 				<section class="container">
 					<div class="block">
 						<div class="row">
+							<div style="padding: 0px 20px">
+							@include('errors.showerrors')
+							</div>
 							<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+
 								<header>
 									<h1 class="page-title">Sign In</h1>
 								</header>
 								<hr>
+
 								<form role="form" id="form-sign-in-account" method="post" action="/login">
 									<input type="text"  hidden="true" name="_token" value="{{ csrf_token() }}">
 									
