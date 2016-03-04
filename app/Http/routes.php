@@ -92,4 +92,9 @@ Route::group(['prefix' => 'company'], function () {
 		'as' 	=> 'company.search.{keyword}'
 	]);
 
+	Route::post('review', [
+		'uses' 	=> 'ReviewController@createReview', 
+		'as' 	=> 'company.review'
+	]);
+
 });
