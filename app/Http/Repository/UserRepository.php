@@ -12,6 +12,11 @@ class UserRepository
 		return User::get();
 	}
 
+	public function getUserById($id)
+	{
+		return User::find($id);
+	}
+
 	public function createUser($data)
 	{
 		$new_user = new User;
