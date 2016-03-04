@@ -7,9 +7,9 @@ use App\Model\Review;
 class ReviewRepository
 {
 
-	public function FunctionName($value='')
+	public function FunctionName($data)
 	{
-		
+		return $data;
 	}
-
+	
 }
