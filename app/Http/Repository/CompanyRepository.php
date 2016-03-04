@@ -20,10 +20,11 @@ class CompanyRepository
 	public function createCompany($data)
 	{
 		$new_company = new Company;
-
+//		return $data;
 		$new_company->name 		= $data['company_name'];
 		$new_company->status 		= 0;
 		$new_company->email		= $data['email'];
+		$new_company->tags		= $data['tags'];
 		$new_company->images		= $data['images'];
 		$new_company->user_id		= $data['user_id'];
 		$new_company->website 		= $data['website'];

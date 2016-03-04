@@ -23,7 +23,7 @@ class CompanyController extends Controller
 			'logo' 		=> $url,
 			"album"	=>[$url, $url, $url],
 		];
-
+		
 		$request['images'] = $image;
 		$request['user_id'] = 1;
 
