@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Repository\UserRepository;
+use App\Http\Repository\ReviewRepository;
 use App\Http\Repository\CompanyRepository;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -16,6 +17,7 @@ abstract class Controller extends BaseController
 	public function __construct()
 	{
 		$this->userRepository 	= new UserRepository;
+		$this->reviewRepository 	= new ReviewRepository;
 		$this->companyRepository 	= new CompanyRepository;
 	}
 }

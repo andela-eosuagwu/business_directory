@@ -2,7 +2,9 @@
 
 namespace App\Model;
 
+use App\Model\Reviews;
 use Illuminate\Database\Eloquent\Model;
+
 
 class Company extends Model
 {
@@ -23,5 +25,10 @@ class Company extends Model
 		'images' 	=> 'json',
 		'address' 	=> 'json',
 	];
+
+	public function reviews()
+	{
+		return $this->hasMany(Reviews);
+	}
 }
 

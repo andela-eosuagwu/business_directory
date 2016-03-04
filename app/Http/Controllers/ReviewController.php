@@ -10,6 +10,6 @@ class ReviewController extends Controller
 {
 	public function createReview(Request $request)
 	{
-		return $request->all();
+		return $this->reviewRepository->addReview($request->all());
 	}
 }

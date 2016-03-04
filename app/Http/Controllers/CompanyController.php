@@ -34,7 +34,7 @@ class CompanyController extends Controller
 	{
 		$company =  $this->companyRepository->getCompanyById($id);
 		
-		$data = [
+	return	$data = [
 			"company" => $company,
 		];
 

@@ -314,6 +314,7 @@
 									<form id="form-review" role="form" method="post" action="/company/review" class="background-color-white">
 										<div class="row">
 											<input type="text"  hidden="true"  name="_token" value="{{ csrf_token() }}">
+											<input type="text"  hidden="true"  name="company_id" value="{{$data['company']->id}}">
 											<div class="col-md-8">
 												<div class="form-group">
 													<label for="form-review-name">Name</label>
