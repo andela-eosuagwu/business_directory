@@ -116,7 +116,7 @@
 										<div class="col-md-4 col-sm-4">
 											<div class="form-group">
 												<label for="zip">Website</label>
-												<input type="text" class="form-control" id="zip" name="address[zip]" pattern="\d*" value="{{$company->website}}">
+												<input type="text" class="form-control" id="zip" name="address[zip]"  value="{{$company->website}}">
 											</div>
 											<!--/.form-group-->
 										</div>

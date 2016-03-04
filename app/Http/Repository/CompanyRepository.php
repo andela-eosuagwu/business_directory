@@ -41,10 +41,11 @@ class CompanyRepository
 
 	public function updateCompany($data)
 	{
-		$company =  $this->getCompanyById($data['company_id']);
-	
-		$company->update($data);
-		return $company;
+		$company =  Company::where('id', $data['company_id'])
+				->update([
+					'name' 	=> $data['name'],
+					'address'	=> json_encode($data['address'])
+				]);
 	}
 
 }

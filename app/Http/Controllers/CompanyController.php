@@ -54,7 +54,6 @@ class CompanyController extends Controller
 		$data =  $request->all();
 		$data['company_id'] = 1;
 		return $this->companyRepository->updateCompany($data);
-
 	}
 
 	public function search($keyword)
