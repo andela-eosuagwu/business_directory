@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use Auth;
-use App\User;
 use Validator;
+use App\Model\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -50,9 +50,7 @@ class AuthController extends Controller
 
 	public function login(Request $request)
 	{
-		$credentials = $request->only('email', 'password');
-
-		if (Auth::attempt($credentials))
+		if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']]))
 		{
 			return view('register');
 		}
