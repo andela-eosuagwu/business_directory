@@ -19,7 +19,11 @@ class CreateUsersTable extends Migration
 			$table->integer('role');
 			$table->string('sex')->nullable();
 			$table->integer('phone_number')->nullable();
-			$table->string('password');
+			$table->integer('confirmed')->nullable();
+			$table->string('remember_token')->nullable();
+			$table->enum('plan',['0','1','2']);
+			$table->int('paid');
+			$table->dateTime('payment_date');
 			$table->timestamps();
 		});
 	}

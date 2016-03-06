@@ -2,13 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CompanyCreate;
 use App\Model\Company;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
-
+use App\User;
+use Auth;
+use Illuminate\Support\Facades\Redirect;
 class CompanyController extends Controller
 {
+	public function dashboard(){
+		if(Auth::user()->role == 1){
+			return view('pages.company.admindashboard');
+		}else {
+			return view('pages.company.dashboard');
+		}
+	}
 	public function index()
 	{
 		$companies =  $this->companyRepository->getAllCompanies();
@@ -16,19 +27,78 @@ class CompanyController extends Controller
 		return view('pages.company.all_company', compact('companies'));
 	}
 
-	public function create(Request $request)
-	{	
+	public function create(CompanyCreate $request)
+	{
+		//get GPS CORORDINATES
+		$address = $request->address;
+		$baseUrl='https://maps.googleapis.com/maps/api/geocode/json?';
+		$query = array(
+			'address' => $address.", Lagos",
+			'key' => 'AIzaSyCvwHuetVNg5JjrDS-8J_rBbjAye5pnc1M'
+		);
+		$url = $baseUrl . http_build_query($query);
+		@$response = file_get_contents($url);
+		if($response === FALSE){
+			$request->gps_lat = $request->gps_lng = "";
+		}else {
+			$response = json_decode($response);
 
-		$url = "https://pixabay.com/static/uploads/photo/2015/01/31/05/05/background-618226_960_720.png";
-		$image = [
-			'logo' 		=> $url,
-			"album"	=>[$url, $url, $url],
-		];
-		
-		$request['images'] = $image;
-		$request['user_id'] = 1;
+			if (isset($response->results[0]->geometry->location->lat)) {
+				$request->gps_lat = $response->results[0]->geometry->location->lat;
+			}
 
-		return $this->companyRepository->createCompany($request->all());
+			if (isset($response->results[0]->geometry->location->lng)) {
+				$request->gps_lon = $response->results[0]->geometry->location->lng;
+			}
+		}
+
+		//processing of Images
+		$userplan = Auth::user()->plan;
+
+		$countimg = count($request->image);
+		if($userplan == 1){
+			//count Images
+			if($countimg >3){
+				session()->flash('alert-danger', 'We noticed you uploaded more than 3 images, Upgrade your plan if you want to upload more!');
+				return Redirect::back()
+					->withInput();
+			}
+		}else if($userplan > 1){
+
+			if($countimg > 5){
+				session()->flash('alert-danger', 'We noticed you uploaded more than 5 images, We currently don\'t support that much storage.');
+				return Redirect::back()
+					->withInput();
+			}
+
+		}
+		$images = $request->file('image');
+		$destinationPath = 'uploads/companies';
+
+		foreach($images as $image){
+			$extension = $image->getClientOriginalExtension();
+			if(!in_array($extension,['jpg','png','gif'])){
+				session()->flash('alert-danger', 'We noticed you added an image we currently don\'t support, supported formats are JPG,GIF,PNG');
+				return Redirect::back()
+					->withInput();
+			}
+			if($image->getSize() > 500000){
+					session()->flash('alert-danger', 'Please each image must not be more than 500kb');
+					return Redirect::back()
+						->withInput();
+				}
+			$fileName = Carbon::now().'.'.$extension;
+			$image->move($destinationPath,$fileName);
+			$filenames[] = $destinationPath."/".$fileName;
+		}
+
+
+			$request['images'] = $filenames;
+			$request['user_id'] = Auth::user()->id;
+
+		 if($this->companyRepository->createCompany($request->all())){
+			return redirect()->to('/dashboard');
+		 }
 	}
 
 	public function view($id)
@@ -93,5 +163,12 @@ class CompanyController extends Controller
 			);
 		}
 		return $json;
+	}
+
+	public function selectPlan($id = null){
+		//update user plan
+		$user = User::where('id', Auth::user()->id)
+			->update(['plan' => $id]);
+		return redirect()->to('/business/create');
 	}
 }

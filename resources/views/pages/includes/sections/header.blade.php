@@ -1,7 +1,7 @@
 <div class="header">
 	<div class="wrapper">
 		<div class="brand">
-			<a href="{{ url('/') }}"><img src="assets/img/logo.png" alt="logo"></a>
+			<a href="{{ url('/') }}"><img src="{{ url('/assets/img/logo.png') }}" alt="logo"></a>
 		</div>
 		<nav class="navigation-items">
 			<div class="wrapper">

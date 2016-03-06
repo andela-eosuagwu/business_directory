@@ -1,86 +1,60 @@
-<div class="col-md-9">
-	<header>
-		<h1 class="page-title">Submit Item</h1>
-	</header>
+<div class="col-md-12" style="padding: 0px 100px;">
+	<form id="form-submit" role="form" method="post" action="/business/create" enctype="multipart/form-data">
+		
+		<input type="text" hidden="true" name="_token" value="{{ csrf_token() }}">
+		@include('errors.showerrors')
 
-	<form id="form-submit" role="form" method="post" action="/company/create" enctype="multipart/form-data">
-		
-		<input type="text"  hidden="true" name="_token" value="{{ csrf_token() }}">
-		
-		<section>
-			<div class="form-group large">
-				<label for="title">Company Name</label>
-				<input type="text" class="form-control" id="title" name="company_name">
+			<div class="form-group">
+				<label for="title">Business Name *</label>
+				<input type="text" class="form-control yee" id="title" style="border: 1px solid #9e9e9e;" value="{{ old('name') }}" name="name">
 			</div>
-		</section>
 
 		<section>
-			<h3>Address & Contact</h3>
+			<fieldset>
+				<h2>Address & Contact</h2>
+				<hr>
 			<div class="row">
-				
-				<div class="col-md-4 col-sm-4">
-					<div class="form-group">
-						<label for="state">State</label>
-						<input type="text" class="form-control" id="state" name="address[state]">
-					</div>
-				</div>
-				
-				<div class="col-md-4 col-sm-4">
-					<div class="row">
-						<div class="col-md-8 col-sm-8">
-							<div class="form-group">
-								<label for="city">City</label>
-								<input type="text" class="form-control" id="city" name="address[city]">
-							</div>
-						</div>
-						<div class="col-md-4 col-sm-4">
-							<div class="form-group">
-								<label for="zip">ZIP</label>
-								<input type="text" class="form-control" id="zip" name="address[zip]" pattern="\d*">
-							</div>
-						</div>
-					</div>
-				</div>
-		
-				<div class="col-md-4 col-sm-4">
+
+				<div class="col-md-12 col-sm-12">
 					<div class="form-group">
 						<label for="street">Street</label>
-						<input type="text" class="form-control" id="street" name="address[street]">
+						<input type="text"  style="border: 1px solid #9e9e9e;"  class="form-control" id="address" value="{{ old('location') }}"  name="location">
 					</div>
 				</div>
 		
-			</div>
+			</div><br/>
 		
 			<div class="row">
 				<div class="col-md-4 col-sm-4">
 					<div class="form-group">
 						<label for="phone-number">Phone Number</label>
-						<input type="text" class="form-control" id="phone-number" name="phone_number" pattern="\d*">
+						<input type="text" class="form-control"  style="border: 1px solid #9e9e9e;"  id="phone-number" value="{{ old('phone_number') }}"  name="phone_number" pattern="\d*">
 					</div>
 				</div>
 				<!--/.col-md-4-->
 				<div class="col-md-4 col-sm-4">
 					<div class="form-group">
 						<label for="email">E-mail</label>
-						<input type="email" class="form-control" id="email" name="email">
+						<input type="email" class="form-control" style="border: 1px solid #9e9e9e;"  id="email" name="email" value="{{ old('email') }}" >
 					</div>
 				</div>
 				<!--/.col-md-4-->
 				<div class="col-md-4 col-sm-4">
 					<div class="form-group">
 						<label for="website">Website</label>
-						<input type="text" class="form-control" id="website" name="website">
+						<input type="text" class="form-control" style="border: 1px solid #9e9e9e;" value="{{ old('website') }}"  id="website" name="website">
 					</div>
 				</div>
 				<!--/.col-md-4-->
 			</div>
+				</fieldset>
 		</section>
 		
 		<section>
-			<h3><i class="fa fa-info-circle"></i>About Your Company</h3>
+			<h3>Tell us About what you do?</h3>
 			<div class="form-group">
 				<div class="form-group">
-					<textarea class="form-control" id="about-me" rows="3" name="description" required=""></textarea>
+					<textarea class="form-control" id="about-me" rows="3" name="description"  style="border: 1px solid #9e9e9e;"  required="">{{ old('description') }}</textarea>
 				</div>
 			</div>
 		</section>
@@ -88,34 +62,29 @@
 
 		<section>
 			<h3>Tags</h3>
-			<ul class="list-unstyled checkboxes">
-				<li><div class="checkbox"><label><input type="checkbox" name="tags[]" value="1">Free Parking</label></div></li>
-				<li><div class="checkbox"><label><input type="checkbox" name="tags[]" value="2">Cards Accepted</label></div></li>
-				<li><div class="checkbox"><label><input type="checkbox" name="tags[]" value="3">Wi-Fi</label></div></li>
-				<li><div class="checkbox"><label><input type="checkbox" name="tags[]" value="4">Air Condition</label></div></li>
-				<li><div class="checkbox"><label><input type="checkbox" name="tags[]" value="5">Reservations</label></div></li>
-				<li><div class="checkbox"><label><input type="checkbox" name="tags[]" value="6">Team-buildings</label></div></li>
-				<li><div class="checkbox"><label><input type="checkbox" name="tags[]" value="7">Places to seat</label></div></li>
-				<li><div class="checkbox"><label><input type="checkbox" name="tags[]" value="8">Winery</label></div></li>
-				<li><div class="checkbox"><label><input type="checkbox" name="tags[]" value="9">Draft Beer</label></div></li>
-				<li><div class="checkbox"><label><input type="checkbox" name="tags[]" value="10">LCD</label></div></li>
-				<li><div class="checkbox"><label><input type="checkbox" name="tags[]" value="11">Saloon</label></div></li>
-				<li><div class="checkbox"><label><input type="checkbox" name="tags[]" value="12">Free Access</label></div></li>
-				<li><div class="checkbox"><label><input type="checkbox" name="tags[]" value="13">Terrace</label></div></li>
-				<li><div class="checkbox"><label><input type="checkbox" name="tags[]" value="14">Minigolf</label></div></li>
-				<li><div class="checkbox"><label><input type="checkbox" name="tags[]" value="15">Night Bar</label></div></li>
-			</ul>
+			<span>This would help streamline search results so your business can be seen</span>
+			<input type="text" class="form-control" data-role="tagsinput" style="border: 1px solid #9e9e9e;" value="business"  id="website" name="tags">
 		</section>
-		
+<section>
+	<h3>Featured Images/Logo of your Business</h3>
+	<div class="form-group">
+		<div class="form-group">
+			<input type="file" name="image[]"  class="form-control" multiple/>
+		</div>
+	</div>
+</section>
 		<hr>
-		<section>
+		<section style="padding: 0px 70px">
 			<figure class="pull-left margin-top-15">
-				<p>By clicking “Submit & Pay” button you agree with <a href="terms-conditions.html" class="link">Terms & Conditions</a></p>
+				<p>By clicking “Submit & Pay” button you agree with <a href="#" class="link">Terms & Conditions</a></p>
 			</figure>
 			<div class="form-group">
-				<button type="submit" class="btn btn-default pull-right" id="submit">Submit & Pay</button>
+				<button type="submit" class="btn btn-default pull-right" id="submit">Submit</button>
 			</div>
 			<!-- /.form-group -->
 		</section>
+
+
+
 	</form>
 </div>

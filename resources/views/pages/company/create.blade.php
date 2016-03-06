@@ -1,72 +1,41 @@
-<html lang="en-US">
-	<head>
-		<meta charset="UTF-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		@include('pages.includes.sections.link')
-	</head>
+@extends('mastercompany')
 
-	<body onunload="" class="page-subpage page-submit navigation-off-canvas" id="page-top">
 
-		<div id="outer-wrapper">
-			<!-- Inner Wrapper -->
-			<div id="inner-wrapper">
+@section('title', 'Lekki Republic Dashboard')
 
-				@include('pages.includes.sections.header')
+@section('content')
 
-				<div id="page-canvas">
-				
-					@include('pages.includes.sections.sub-header')
-					
-					<div id="page-content">
-						<section class="container">
-							<div class="row">
-								@include('pages.company.create_form')
-								@include('pages.company.pricing')
-							</div>
-						</section>
+	<div id="outer-wrapper">
+		<div id="inner-wrapper">
+			@include('pages.includes.sections.adminheader')
+
+			<div class="content-wrapper">
+				<div class="content-heading" style="padding-left: 150px;">
+					<b>Add Your Business</b>
+				</div>
+				<div style="padding : 0px 50px;">
+					<!-- START widgets box-->
+					<div class="row">
+
+
+						@include('pages.company.create_form')
+
+
 					</div>
+					<!-- END widgets box-->
 
 				</div>
-				@include('pages.includes.sections.footer')
 			</div>
-			<!-- end Inner Wrapper -->
+
+			@include('pages.includes.sections.slimfooter')
 		</div>
+	</div>
+
+
+@stop
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		@include('pages.includes.sections.script')
-
-		<script>
-			$(window).load(function(){
-				var _latitude = 51.541599;
-				var _longitude = -0.112588;
-				var draggableMarker = true;
-				simpleMap(_latitude, _longitude,draggableMarker);
-			});
-			autoComplete();
-		</script>
-
-		<!--[if lte IE 9]>
-		<script type="text/javascript" src="assets/js/ie-scripts.js"></script>
-		<![endif]-->
-	</body>
-</html>

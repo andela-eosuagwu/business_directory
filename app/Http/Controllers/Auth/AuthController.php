@@ -8,7 +8,8 @@ use App\Model\wUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-
+use App\Http\Requests\SignupRequest;
+use Illuminate\Support\Facades\Mail;
 class AuthController extends Controller
 {
 	/*
@@ -35,17 +36,36 @@ class AuthController extends Controller
 		$this->middleware('guest', ['except' => 'getLogout']);
 	}
 
-	public function register(Request $request)
+	public function register(SignupRequest $request)
 	{
 		$checkUserExist = $this->userRepository->checkUserExist($request['email']);
-		
-		if ($checkUserExist->count() > 0) {
-			return "email is alread take jor";
+
+		$user = $this->userRepository->createUser($request->all());
+
+		if($user){
+			//send mail to the user
+			$domain = $_SERVER['SERVER_NAME'];
+			$data = array(
+				'name' => $request->full_name,
+				'email' => $request->email,
+				'subject' => 'Welcome to Lekki Republic',
+				'messageabout' => "Hi ". $request->name.", thank you for signing up, kindly confirm your email account.",
+				'link' => 'http://'. $domain."/confirmAccount/".$user.'/'.md5($request->email)
+			);
+
+			Mail::send('emails.welcome', $data, function($message) use ($data)
+			{
+				$message->to($data['email'], $data['name'])->subject('Welcome to Lekki Republic');
+			});
+
+			session()->flash('alert-success', 'An email has been sent to you, Kindly confirm your email address');
+
+			return redirect()->to('/login');
+		}else{
+			session()->flash('alert-danger', 'Oops, Something went wrong on login, Please try again!!!');
+			return redirect()->to('/login');
 		}
 
-		$this->userRepository->createUser($request->all());
-		
-		return "user created";
 	}
 
 	public function login(Request $request)

@@ -27,6 +27,7 @@ class UserRepository
 		$new_user->password 	= bcrypt($data['password']);
 		
 		$new_user->save();
+		return $new_user->id;
 	}
 
 	public function checkUserExist($email)

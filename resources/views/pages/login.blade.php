@@ -4,14 +4,12 @@
 
 @section('content')
 
-<body onunload="" class="page-subpage page-register navigation-top-header" id="page-top">
 	<div id="outer-wrapper">
 		<div id="inner-wrapper">
 			@include('pages.includes.sections.header')
 			@include('pages.includes.contents.login')
 			@include('pages.includes.sections.footer')
-		</div>
+		</div>3
 	</div>
-</body>
 
 @endsection

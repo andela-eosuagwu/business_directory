@@ -36,6 +36,9 @@
 		<section class="container">
 			<div class="block">
 				<div class="row">
+					<div style="padding: 0px 20px">
+						@include('errors.showerrors')
+					</div>
 					<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
 						<header>
 							<h1 class="page-title">Register</h1>
@@ -67,11 +70,11 @@
 							</div>
 							 -->
 							
-							<div class="checkbox pull-left">
-								<label>
-									<input type="checkbox" name="newsletter">Receive Newsletter
-								</label>
-							</div>
+							{{--<div class="checkbox pull-left">--}}
+								{{--<label>--}}
+									{{--<input type="checkbox" name="newsletter">Receive Newsletter--}}
+								{{--</label>--}}
+							{{--</div>--}}
 							
 							<div class="form-group clearfix">
 								<button type="submit" class="btn pull-right btn-default" id="account-submit">Create an Account</button>

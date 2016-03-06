@@ -20,19 +20,19 @@ class CompanyRepository
 	public function createCompany($data)
 	{
 		$new_company = new Company;
-//		return $data;
-		$new_company->name 		= $data['company_name'];
+		$new_company->name 		= $data['name'];
 		$new_company->status 		= 0;
 		$new_company->email		= $data['email'];
 		$new_company->tags		= $data['tags'];
 		$new_company->images		= $data['images'];
 		$new_company->user_id		= $data['user_id'];
 		$new_company->website 		= $data['website'];
-		$new_company->address 		= $data['address'];
+		$new_company->location 		= $data['location'];
 		$new_company->description 	= $data['description'];
 		$new_company->phone_number 	= $data['phone_number'];
 		
 		$new_company->save();
+		return true;
 	}
 
 	public function checkComapanyNameExist($name)

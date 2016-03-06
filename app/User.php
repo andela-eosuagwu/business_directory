@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Model\Company;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -35,4 +36,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
+
+	public function companies(){
+		return $this->hasOne(Company::class);
+	}
 }
