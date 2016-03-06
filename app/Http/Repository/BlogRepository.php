@@ -26,7 +26,7 @@ class BlogRepository
 
 	public function findBlogById($id)
 	{
-		return Blog::find($id);
+		return Blog::with('comments')->find($id);
 	}
 }
 
