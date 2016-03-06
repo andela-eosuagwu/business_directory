@@ -138,23 +138,24 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['prefix' => 'blog'], function () {
 
 	Route::get('/', [
-		'uses' 	=> 'BlogController@index', 
-		'as' 	=> 'blog'
+		'uses' => 'BlogController@index',
+		'as' => 'blog'
 	]);
 
 	Route::get('create', [
-		'uses' 	=> 'BlogController@create', 
-		'as' 	=> 'blog.create'
+		'uses' => 'BlogController@create',
+		'as' => 'blog.create'
 	]);
 
 	Route::get('{id}', [
-		'uses' 	=> 'BlogController@view', 
-		'as' 	=> 'blog.{id}'
+		'uses' => 'BlogController@view',
+		'as' => 'blog.{id}'
 	]);
 
 	Route::post('comment', [
-		'uses' 	=> 'BlogController@comment', 
-		'as' 	=> 'blog.comment'
+		'uses' => 'BlogController@comment',
+		'as' => 'blog.comment'
 	]);
 
+});
 });

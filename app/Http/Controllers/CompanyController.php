@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Auth;
 use Illuminate\Support\Facades\Redirect;
+
 class CompanyController extends Controller
 {
 	public function dashboard(){
