@@ -34,4 +34,9 @@ class BlogController extends Controller
 		$blog = $this->blogRepository->findBlogById($id);
 		return view('pages.blog.view', compact('blog'));
 	}
+
+	public function comment(Request $request)
+	{
+		return $request->all();
+	}
 }
