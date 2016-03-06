@@ -15,5 +15,9 @@ class Blog extends Model
 		'tags',
 	];
 
+
+	protected $casts = [
+		'tags' => 'json'
+	];
 }
 
