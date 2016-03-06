@@ -12,13 +12,15 @@ class BlogController extends Controller
 
 	public function index()
 	{
-		return view('pages.blog.index');
+		$blogs = $this->blogRepository->getAllBlog();
+
+		return view('pages.blog.index', compact('blogs'));
 	}
 
 	public function create()
 	{
 		$data = [
-			"tag" 		=> ['schscsd', 'fwefwefawe', 'fweferfer'],
+			"tags" 		=> ['schscsd', 'fwefwefawe', 'fweferfer'],
 			"title" 		=>"some title",
 			"image" 	=> "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSQ4vVRsQIuGwsqQAqYuxbNvc4I_MNhMOYavux4Ct9ocZni3wDGtg",
 			"article" 	=> "fekrjfkeajraerjkerkj",

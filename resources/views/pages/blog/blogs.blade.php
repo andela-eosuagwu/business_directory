@@ -40,36 +40,39 @@
 						<h1 class="page-title">Blog</h1>
 					</header>
 
-					<article class="blog-post">
-						<header><a href="blog-detail.html"><h2>Vivamus porta orci eu turpis vulputate ornare fusce hendrerit arcu risu</h2></a></header>
-						<a href="blog-detail.html"><img src="assets/img/blog-1.jpg" alt=""></a>
-						<figure class="meta">
-							<a href="#" class="link-icon"><i class="fa fa-user"></i>Admin</a>
-							<a href="#" class="link-icon"><i class="fa fa-calendar"></i>06/04/2014</a>
-							<div class="tags">
-								<a href="#" class="tag article">Architecture</a>
-								<a href="#" class="tag article">Design</a>
-								<a href="#" class="tag article">Trend</a>
-							</div>
-						</figure>
-						<p>Fusce quis nulla volutpat, rhoncus ligula ut, pulvinar nisi. In dapibus urna sit amet accumsan
-							tristique. Donec odio ligula, luctus venenatis varius id, tincidunt ac ipsum. Cras commodo,
-							velit nec aliquam dictum, tortor velit dictum ipsum, sed ornare nunc leo nec ipsum. Vestibulum
-							sagittis sapien vitae tristique mollis. Aliquam hendrerit nulla semper, viverra mi et,
-							hendrerit mauris. Maecenas hendrerit congue ultrices. In laoreet erat blandit eros aliquet,
-							in malesuada sem rutrum. In placerat porta egestas.
-						</p>
-						<a href="blog-detail.html" class="icon">Read More <i class="fa fa-angle-right"></i></a>
-					</article><!-- /.blog-post -->
+					@foreach($blogs as $blog)
+						<article class="blog-post">
+							<header><a href="blog-detail.html"><h2>{{$blog->title}}</h2></a></header>
+							
+							@if(!$blog->image == '')
+								<a href="blog-detail.html"><img src="{{$blog->image}}" alt=""></a>
+							@endif
+
+							<figure class="meta">
+								<a href="#" class="link-icon"><i class="fa fa-user"></i>Admin</a>
+								<a href="#" class="link-icon"><i class="fa fa-calendar"></i>{{$blog->created_at->diffForHumans()}}</a>
+								@foreach($blog->tags as $tag)
+								<div class="tags">
+									<a href="#" class="tag article">{{$tag}}</a>
+								</div>
+								@endforeach
+							</figure>
+							<p>{{$blog->article}}
+
+							Fusce quis nulla volutpat, rhoncus ligula ut, pulvinar nisi. In dapibus urna sit amet accumsan
+								tristique. Donec odio ligula, luctus venenatis varius id, tincidunt ac ipsum. Cras commodo,
+								velit nec aliquam dictum, tortor velit dictum ipsum, sed ornare nunc leo nec ipsum. Vestibulum
+								sagittis sapien vitae tristique mollis. Aliquam hendrerit nulla semper, viverra mi et,
+								hendrerit mauris. Maecenas hendrerit congue ultrices. In laoreet erat blandit eros aliquet,
+								in malesuada sem rutrum. In placerat porta egestas.
+							</p>
+							<a href="blog-detail.html" class="icon">Read More <i class="fa fa-angle-right"></i></a>
+						</article>
+					@endforeach
 		
-					<!--Pagination-->
 					<nav>
 						<ul class="pagination pull-right">
-							<li class="active"><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#" class="previous"><i class="fa fa-angle-left"></i></a></li>
-							<li><a href="#" class="next"><i class="fa fa-angle-right"></i></a></li>
+							{!! $blogs->render() !!}
 						</ul>
 					</nav>
 					<!--end Pagination-->
