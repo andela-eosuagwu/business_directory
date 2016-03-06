@@ -2,13 +2,13 @@
 
 namespace App\Http\Repository;
 
-use App\User;
+use App\Blog;
 
 class BlogRepository
 {
-	public function getAllUsers()
+	public function createBlog($data)
 	{
-		return User::get();
+		return $data;
 	}
-
 }
+
