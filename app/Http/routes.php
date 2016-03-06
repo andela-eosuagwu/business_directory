@@ -113,4 +113,9 @@ Route::group(['prefix' => 'blog'], function () {
 		'as' 	=> 'blog'
 	]);
 
+	Route::get('create', [
+		'uses' 	=> 'BlogController@create', 
+		'as' 	=> 'blog.create'
+	]);
+
 });
