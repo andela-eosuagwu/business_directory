@@ -15,6 +15,10 @@ class Blog extends Model
 		'tags',
 	];
 
+	public function comments()
+	{
+		return $this->hasMany('App\Model\Comment');
+	}
 
 	protected $casts = [
 		'tags' => 'json'

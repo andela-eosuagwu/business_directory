@@ -11,8 +11,14 @@ class Comment extends Model
 	protected $fillable = [
 		'name',
 		'email',
+		'blog_id',
 		'message',
 	];
+
+	public function blog()
+	{
+		return $this->belongsTo('App\Model\Blog');
+	}
 
 }
 
