@@ -36,7 +36,7 @@ class BlogController extends Controller
 	}
 
 	public function comment(Request $request)
-	{
-		return $request->all();
+	{	
+		return $this->commentRepository->saveComment($request->all());
 	}
 }

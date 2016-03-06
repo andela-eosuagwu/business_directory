@@ -16,7 +16,7 @@ class CommentRepository
 		$new_comment->message 	= $data['message'];
 
 		$new_comment->save();
-		return "blog created";	
+		return "comment created";	
 	}
 }
 

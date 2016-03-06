@@ -123,7 +123,7 @@ Route::group(['prefix' => 'blog'], function () {
 		'as' 	=> 'blog.{id}'
 	]);
 
-	Route::get('comment', [
+	Route::post('comment', [
 		'uses' 	=> 'BlogController@comment', 
 		'as' 	=> 'blog.comment'
 	]);

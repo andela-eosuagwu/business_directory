@@ -68,6 +68,7 @@
 					<section id="comments">
 						<header><h2 class="no-border">Comments</h2></header>
 						<ul class="comments">
+							@foreach($blog->comments as $comment)
 							<li class="comment">
 								<figure>
 									<div class="image">
@@ -75,35 +76,33 @@
 									</div>
 								</figure>
 								<div class="comment-wrapper">
-									<div class="name pull-left">Catherine Brown</div>
-									<span class="date pull-right"><span class="fa fa-calendar"></span>12.05.2014</span>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum, sem ut sollicitudin consectetur,
-										augue diam ornare massa, ac vehicula leo turpis eget purus. Nunc pellentesque vestibulum mauris, eget suscipit
-										mauris imperdiet vel. Nulla et massa metus. Nam porttitor quam eget ante elementum consectetur. Aenean ac nisl
-										et nulla placerat suscipit eu a mauris. Curabitur quis augue condimentum, varius mi in, ultricies velit.
-										Suspendisse potenti.
-									</p>
+									<div class="name pull-left">{{$comment->name}}</div>
+									<span class="date pull-right"><span class="fa fa-calendar"></span>{{$comment->created_at->diffForHumans()}}</span>
+									<p>{{$comment->message}}</p>
 									<a href="#" class="reply"><span class="fa fa-reply"></span>Reply</a>
 									<hr>
 								</div>
 							</li>
+							@endforeach
 						</ul>
 					</section>
 
 					<section id="leave-reply">
 						<header><h2 class="no-border">Leave a Reply</h2></header>
-						<form role="form" id="form-blog-reply" method="post" action="?" class="clearfix">
+						<form role="form" id="form-blog-reply" method="post" action="/blog/comment" class="clearfix">
+							<input type="text" hidden="true" name="_token"  value="{{ csrf_token() }}">
+							<input type="text" hidden="true" name="blog_id"  value="{{ $blog->id }}">
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="form-blog-reply-name">Your Name<em>*</em></label>
-										<input type="text" class="form-control" id="form-blog-reply-name" name="form-blog-reply-name" required>
+										<input type="text" class="form-control" id="form-blog-reply-name" name="name" required>
 									</div><!-- /.form-group -->
 								</div><!-- /.col-md-6 -->
 								<div class="col-md-6">
 									<div class="form-group">
 										<label for="form-blog-reply-email">Your Email<em>*</em></label>
-										<input type="email" class="form-control" id="form-blog-reply-email" name="form-blog-reply-email" required>
+										<input type="email" class="form-control" id="form-blog-reply-email" name="email" required>
 									</div><!-- /.form-group -->
 								</div><!-- /.col-md-6 -->
 							</div><!-- /.row -->
@@ -111,7 +110,7 @@
 								<div class="col-md-12">
 									<div class="form-group">
 										<label for="form-blog-reply-message">Your Message<em>*</em></label>
-										<textarea class="form-control" id="form-blog-reply-message" rows="5" name="form-blog-reply-message" required></textarea>
+										<textarea class="form-control" id="form-blog-reply-message" rows="5" name="message" required></textarea>
 									</div><!-- /.form-group -->
 								</div><!-- /.col-md-12 -->
 							</div><!-- /.row -->

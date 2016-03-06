@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Repository\BlogRepository;
 use App\Http\Repository\UserRepository;
 use App\Http\Repository\ReviewRepository;
+use App\Http\Repository\CommentRepository;
 use App\Http\Repository\CompanyRepository;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -21,5 +22,6 @@ abstract class Controller extends BaseController
 		$this->userRepository 	= new UserRepository;
 		$this->reviewRepository 	= new ReviewRepository;
 		$this->companyRepository 	= new CompanyRepository;
+		$this->commentRepository 	= new CommentRepository;
 	}
 }
