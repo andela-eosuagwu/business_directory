@@ -12,9 +12,9 @@ class BlogController extends Controller
 
 	public function index()
 	{
-		$blogs = $this->blogRepository->getAllBlog();
-
-		return view('pages.blog.index', compact('blogs'));
+		//$blogs = $this->blogRepository->getAllBlog();
+		$blog = $this->blogRepository->findBlogById(1);
+		return view('pages.blog.index', compact('blog'));
 	}
 
 	public function create()
