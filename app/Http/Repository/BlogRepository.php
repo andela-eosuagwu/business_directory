@@ -23,5 +23,10 @@ class BlogRepository
 	{
 		return Blog::paginate(4);
 	}
+
+	public function findBlogById($id)
+	{
+		return Blog::find($id);
+	}
 }
 

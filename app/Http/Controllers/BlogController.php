@@ -28,4 +28,10 @@ class BlogController extends Controller
 
 		return $this->blogRepository->createBlog($data);
 	}
+
+	public function view($id)
+	{
+		$blog = $this->blogRepository->findBlogById($id);
+		return view('pages.blog.view', compact('blog'));
+	}
 }
