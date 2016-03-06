@@ -104,3 +104,13 @@ Route::group(['prefix' => 'company'], function () {
 	]);
 
 });
+
+
+Route::group(['prefix' => 'blog'], function () {
+
+	Route::get('/', [
+		'uses' 	=> 'BlogController@index', 
+		'as' 	=> 'blog'
+	]);
+
+});
