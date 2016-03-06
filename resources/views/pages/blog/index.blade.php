@@ -8,7 +8,7 @@
 	<div id="outer-wrapper">
 		<div id="inner-wrapper">
 			@include('pages.includes.sections.header')
-			
+			@include('pages.blog.blogs')
 			@include('pages.includes.sections.footer')
 		</div>
 	</div>
