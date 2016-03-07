@@ -13,8 +13,11 @@
                 <div class="content-heading" style="padding-left: 70px;">
                     Dashboard
                     <small data-localize="dashboard.WELCOME">Welcome {{ Auth::user()->full_name }}</small>
-                    <span class="pull-right" style="margin-top: -30px;"> @if(Auth::user()->companies->status == 0)
+                    <span class="pull-right" style="margin-top: -30px;">
+                        @if(count(Auth::user()->companies) > 0)
+                        @if(Auth::user()->companies->status == 0)
                         <b> Pending Approval</b></span>
+                    @endif
                     @endif
                 </div>
                 <div style="padding : 0px 50px;">
@@ -97,6 +100,7 @@
                     @endif
                 </div>
                 <!-- END widgets box-->
+                    @if(count(Auth::user()->companies) != 0)
                 <div class="row">
                     <div class="row">
                         <div class="col-lg-6">
@@ -190,6 +194,7 @@
                             </div>
                         </div> <!-- end col -->
                     </div>
+                    @endif
                 </div>
             </div>
             </div>

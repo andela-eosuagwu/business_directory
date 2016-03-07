@@ -17,6 +17,7 @@ class HomeController extends Controller
      */
     public function confirmAccount($id = null, $encypted = null){
         $user = $this->userRepository->getUserById($id);
+        if($user){
         if(md5($user->email) == $encypted){
             if($user->confirmed == 0){
                 User::where('id', $id)
@@ -37,7 +38,12 @@ class HomeController extends Controller
         }else{
             session()->flash('alert-success', 'Invalid Url');
         }
+
+    }else{
+            session()->flash('alert-info', 'This user doesn\'t exist');
+        }
         return redirect()->to('/login');
+
     }
 
     /**

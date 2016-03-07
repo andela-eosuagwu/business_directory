@@ -59,6 +59,22 @@
 			</div>
 		</section>
 
+		<section>
+			<h3>Select Category?</h3>
+			<div class="form-group">
+				<div class="form-group" style="border: 1px solid #9e9e9e;" >
+					<select class="form-control" name="category_id" style="border: 1px solid #9e9e9e;" >
+						@if($categories)
+							<option>Select a Category</option>
+							@foreach($categories as $category)
+
+								<option value="{{ $category->id }}">{{ $category->name }}</option>
+								@endforeach
+							@endif
+					</select>
+				</div>
+			</div>
+		</section>
 
 		<section>
 			<h3>Tags</h3>

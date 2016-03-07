@@ -27,7 +27,9 @@ class CompanyCreate extends Request
             'name' => 'required',
             'email' => 'required|unique:companies',
             'location' => 'required',
-            'image' => 'required'
+            'description' => 'required',
+            'image' => 'required',
+            'category_id' => 'required'
         ];
     }
 }

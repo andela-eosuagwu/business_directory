@@ -53,10 +53,15 @@ class AuthController extends Controller
 				'link' => 'http://'. $domain."/confirmAccount/".$user.'/'.md5($request->email)
 			);
 
-			Mail::send('emails.welcome', $data, function($message) use ($data)
-			{
-				$message->to($data['email'], $data['name'])->subject('Welcome to Lekki Republic');
-			});
+
+
+
+				Mail::send('emails.welcome', $data, function($message) use ($data)
+				{
+					$message->to($data['email'], $data['name'])->subject('Welcome to Lekki Republic');
+				});
+
+
 
 			session()->flash('alert-success', 'An email has been sent to you, Kindly confirm your email address');
 
@@ -72,6 +77,9 @@ class AuthController extends Controller
 	{
 		if (Auth::attempt(['email' => $request['email'], 'password' => $request['password']]))
 		{
+			if(Auth::user()->role > 0){
+				return redirect()->to('/dashboard');
+			}
 			return view('pages.company.dashboard');
 		}else{
 			session()->flash('alert-danger', 'Login Credential failed');

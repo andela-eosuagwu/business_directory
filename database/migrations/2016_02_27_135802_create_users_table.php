@@ -22,7 +22,8 @@ class CreateUsersTable extends Migration
 			$table->integer('confirmed')->nullable();
 			$table->string('remember_token')->nullable();
 			$table->enum('plan',['0','1','2']);
-			$table->int('paid');
+			$table->integer('paid');
+			$table->string('password');
 			$table->dateTime('payment_date');
 			$table->timestamps();
 		});

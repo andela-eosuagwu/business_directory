@@ -78,6 +78,16 @@ Route::group(['middleware' => 'auth'], function () {
 		'as' 	=> 'selectplan'
 	]);
 
+	Route::get('business/{id}/view', [
+		'uses' 	=> 'CompanyController@viewpermission',
+		'as' 	=> 'viewpermission'
+	]);
+
+
+	Route::get('/permission/{id}/approve', [
+		'uses' 	=> 'CompanyController@approve',
+		'as' 	=> 'viewpermission'
+	]);
 
 	Route::group(['prefix' => 'companies'], function () {
 
@@ -99,7 +109,8 @@ Route::group(['middleware' => 'auth'], function () {
 				session()->flash('alert-danger', 'Kindly select a plan before creating your business. Click on Add a Business');
 				return redirect()->to('/dashboard');
 			}
-			return view('pages.company.create');
+			$categories = \App\Model\Category::all();
+			return view('pages.company.create')->with(compact('categories'));
 		});
 
 		Route::post('create', [

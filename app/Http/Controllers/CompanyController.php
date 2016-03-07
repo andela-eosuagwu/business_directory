@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CompanyCreate;
 use App\Model\Company;
+use App\Model\Review;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,11 @@ class CompanyController extends Controller
 {
 	public function dashboard(){
 		if(Auth::user()->role == 1){
-			return view('pages.company.admindashboard');
+			$business = Company::count();
+			$reviews = Review::count();
+			$users = User::count();
+			$pending = Company::where('status', 0)->paginate(5);
+			return view('pages.company.admindashboard')->with(compact('business','reviews','users','pending'));
 		}else {
 			return view('pages.company.dashboard');
 		}
@@ -34,24 +39,25 @@ class CompanyController extends Controller
 		$address = $request->address;
 		$baseUrl='https://maps.googleapis.com/maps/api/geocode/json?';
 		$query = array(
-			'address' => $address.", Lagos",
+			'address' => $address.", Lagos, Nigeria",
 			'key' => 'AIzaSyCvwHuetVNg5JjrDS-8J_rBbjAye5pnc1M'
 		);
 		$url = $baseUrl . http_build_query($query);
 		@$response = file_get_contents($url);
 		if($response === FALSE){
-			$request->gps_lat = $request->gps_lng = "";
+			$request['gps_lat'] = $request['gps_lon'] = "";
 		}else {
 			$response = json_decode($response);
 
 			if (isset($response->results[0]->geometry->location->lat)) {
-				$request->gps_lat = $response->results[0]->geometry->location->lat;
+				$request['gps_lat'] = $response->results[0]->geometry->location->lat;
 			}
 
 			if (isset($response->results[0]->geometry->location->lng)) {
-				$request->gps_lon = $response->results[0]->geometry->location->lng;
+				$request['gps_lon'] = $response->results[0]->geometry->location->lng;
 			}
 		}
+
 
 		//processing of Images
 		$userplan = Auth::user()->plan;
@@ -113,6 +119,15 @@ class CompanyController extends Controller
 		return view('pages.company.view', compact('data'));
 	}
 
+	public function viewpermission($id = null){
+		$company = Company::where('id',$id)->first();
+		if($company->status > 0){
+			session()->flash('alert-danger', 'This business has been approved before!!');
+			return redirect()->to('/dashboard');
+		}
+		return view('pages.company.permission')->with(compact('company'));
+	}
+
 	public function edit($id)
 	{
 		$company = $this->companyRepository->getCompanyById($id);
@@ -171,5 +186,12 @@ class CompanyController extends Controller
 		$user = User::where('id', Auth::user()->id)
 			->update(['plan' => $id]);
 		return redirect()->to('/business/create');
+	}
+
+	public function approve($id = null){
+		$company = Company::where('id', $id)
+			->update(['status' => 1]);
+//remember to send sms
+		return redirect()->to('/dashboard');
 	}
 }

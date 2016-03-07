@@ -25,12 +25,15 @@ class CompanyRepository
 		$new_company->email		= $data['email'];
 		$new_company->tags		= $data['tags'];
 		$new_company->images		= $data['images'];
+		$new_company->category_id		= $data['category_id'];
 		$new_company->user_id		= $data['user_id'];
 		$new_company->website 		= $data['website'];
 		$new_company->location 		= $data['location'];
 		$new_company->description 	= $data['description'];
 		$new_company->phone_number 	= $data['phone_number'];
-		
+		$new_company->gps_lat 	= $data['gps_lat'];
+		$new_company->gps_lon 	= $data['gps_lon'];
+
 		$new_company->save();
 		return true;
 	}

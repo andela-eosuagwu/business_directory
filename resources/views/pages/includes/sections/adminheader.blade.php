@@ -10,8 +10,7 @@
                     <li><a href="{{ url('/dashboard') }}"  style="font-size: 14px;"><strong>Dashboard</strong></a></li>
 
                 @if(count(Auth::user()->companies) > 0)
-                        <li><a href="{{ url('/users/businesses') }}"  style="font-size: 14px;"><strong>My Business</strong></a></li>
-                        @else
+                     @else
                         <li><a href="{{ url('/dashboard') }}" style="font-size: 14px;"><strong>Add a Business</strong></a></li>
                     @endif
                         <li><a href="{{ url('/users/Profile') }}" style="font-size: 14px;"><strong>Profile</strong></a></li>
